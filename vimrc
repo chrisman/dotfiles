@@ -3,6 +3,10 @@ set relativenumber
 set wrap
 syntax enable
 
+"" colors
+"" https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim
+colorscheme onedark
+
 "" searching
 :set incsearch
 :set hlsearch
