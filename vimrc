@@ -6,6 +6,7 @@ syntax enable
 "" colors
 "" https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim
 colorscheme onedark
+set term=screen-256color
 
 "" searching
 :set incsearch
