@@ -13,7 +13,7 @@ set term=screen-256color
 :set hlsearch
 
 "" autosave
-:au FocusLost * :wa
+:set autowrite
 
 "" tabs
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
