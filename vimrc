@@ -6,7 +6,8 @@ syntax enable
 "" colors
 "" https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim
 colorscheme onedark
-set term=screen-256color
+set background=dark
+"set term=screen-256color
 
 "" searching
 :set incsearch
@@ -16,7 +17,9 @@ set term=screen-256color
 :set autowrite
 
 "" tabs
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+"set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set softtabstop=2 shiftwidth=2 expandtab
+
 
 "" splits
 nnoremap <C-J> <C-W><C-J>
@@ -28,3 +31,14 @@ set splitright
 
 "" function keys!
 nnoremap <F3> :noh<CR><CR>
+
+"" PLUGS
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
