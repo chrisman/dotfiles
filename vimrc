@@ -5,7 +5,7 @@ syntax enable
 
 "" colors
 "" https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim
-colorscheme onedark
+"colorscheme onedark
 set background=dark
 "set term=screen-256color
 
@@ -34,6 +34,7 @@ nnoremap <F3> :noh<CR><CR>
 
 "" PLUGS
 call plug#begin('~/.vim/plugged')
+Plug 'freeo/vim-kalisi'
 Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
