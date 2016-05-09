@@ -3,12 +3,6 @@ set relativenumber
 set wrap
 syntax enable
 
-"" colors
-"" https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim
-"colorscheme onedark
-set background=dark
-"set term=screen-256color
-
 "" searching
 :set incsearch
 :set hlsearch
@@ -40,6 +34,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
+"" colors
+set background=dark
+let g:airline_theme='kalisi'
+colorscheme kalisi
+
+"" neovim terminal keybinding
+tnoremap <Esc> <C-\><C-n>
