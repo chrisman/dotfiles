@@ -45,6 +45,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'elmcast/elm-vim'
 call plug#end()
 
 "" colors
