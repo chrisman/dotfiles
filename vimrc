@@ -47,6 +47,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'elmcast/elm-vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 "" colors
