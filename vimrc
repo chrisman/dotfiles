@@ -21,12 +21,13 @@ set softtabstop=2 shiftwidth=2 expandtab
 set splitbelow
 set splitright
 
-"" jumping windows
+"" NAVIGATION
+" windows
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-"" neovim terminal keybinding
+" neovim terminal keybinding
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
@@ -41,13 +42,13 @@ nnoremap <F3> :noh<CR><CR>
 call plug#begin('~/.vim/plugged')
 Plug 'freeo/vim-kalisi'
 Plug 'scrooloose/nerdtree'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'elmcast/elm-vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
+Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] }
 call plug#end()
 
 "" colors
