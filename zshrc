@@ -84,3 +84,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 bindkey -v
+alias vim=nvim
