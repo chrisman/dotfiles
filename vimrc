@@ -49,6 +49,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] }
+Plug 'godlygeek/tabular'
 call plug#end()
 
 "" colors
