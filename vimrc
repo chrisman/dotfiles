@@ -49,6 +49,7 @@ nnoremap <F3> :noh<CR><CR>
 call plug#begin('~/.vim/plugged')
 Plug 'freeo/vim-kalisi'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
