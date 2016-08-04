@@ -17,6 +17,13 @@ syntax enable
 "set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set softtabstop=2 shiftwidth=2 expandtab
 
+"" tabs
+nnoremap tn :tabnew<Space>
+nnoremap tj :tabnext<CR>
+nnoremap tk :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
+
 "" splits
 set splitbelow
 set splitright
