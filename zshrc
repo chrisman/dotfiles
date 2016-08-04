@@ -85,3 +85,4 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v
 alias vim=nvim
+alias rm=rm -i
