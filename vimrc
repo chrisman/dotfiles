@@ -18,9 +18,9 @@ syntax enable
 set softtabstop=2 shiftwidth=2 expandtab
 
 "" tabs
-nnoremap tn :tabnew<Space>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
+nnoremap tc :tabnew<Space>
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
