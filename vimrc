@@ -5,6 +5,7 @@ set relativenumber
 "" misc
 set wrap
 syntax enable
+set ff=unix
 
 "" searching
 :set incsearch
