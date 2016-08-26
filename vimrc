@@ -6,7 +6,8 @@ set relativenumber
 set wrap
 set noerrorbells
 syntax enable
-set ff=unix
+set fileformat=unix
+set fileformats=unix
 let mapleader=","
 
 "" searching
