@@ -83,6 +83,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# vim keys in zsh
 bindkey -v
+
+# neovim!
 alias vim=nvim
-alias rm=rm -i
+export NVM_DIR="/Users/cb/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# suffix aliases!
+alias -s js=vim

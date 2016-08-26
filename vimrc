@@ -4,26 +4,32 @@ set relativenumber
 
 "" misc
 set wrap
+set noerrorbells
 syntax enable
 set ff=unix
+let mapleader=","
 
 "" searching
-:set incsearch
-:set hlsearch
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+nnoremap <F3> :noh<CR><CR>
 
 "" autosave
 :set autowrite
 
+"" blank lines
+nnoremap <Leader>o mao<Esc>`a
+nnoremap <Leader>O maO<Esc>`a
+
+"" random shortcuts
+nnoremap ; :
+nnoremap Q @q
+
 "" tabs
 "set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 set softtabstop=2 shiftwidth=2 expandtab
-
-"" tabs
-nnoremap tc :tabnew<Space>
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tl :tablast<CR>
 
 "" splits
 set splitbelow
@@ -31,27 +37,30 @@ set splitright
 
 "" NAVIGATION
 " windows
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" FIXME why does this not work h to l?
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 " neovim terminal keybinding
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
-
-"" function keys!
-" unhighlight
-nnoremap <F3> :noh<CR><CR>
+"" tabs, the other kind
+nnoremap tc :tabnew<Space>
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tl :tablast<CR>
 
 "" PLUGS
 call plug#begin('~/.vim/plugged')
 Plug 'freeo/vim-kalisi'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -65,3 +74,8 @@ call plug#end()
 set background=dark
 let g:airline_theme='kalisi'
 colorscheme kalisi
+
+"" ctrlp
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>f :CtrlPMRUFiles<CR>
