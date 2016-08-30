@@ -3,19 +3,22 @@ set number
 set relativenumber
 
 "" misc
+let mapleader=","
+set title
 set wrap
+set visualbell
 set noerrorbells
 syntax enable
 set fileformat=unix
 set fileformats=unix
-let mapleader=","
+set hidden
 
 "" searching
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-nnoremap <F3> :noh<CR><CR>
+nnoremap <silent> <Leader>/ :noh<CR>
 
 "" autosave
 :set autowrite
@@ -25,8 +28,12 @@ nnoremap <Leader>o mao<Esc>`a
 nnoremap <Leader>O maO<Esc>`a
 
 "" random shortcuts
-nnoremap ; :
+nnoremap <Space> :
 nnoremap Q @q
+nnoremap <Leader>w :w<cr>
+nnoremap <Leader>q :q<cr>
+nnoremap <Leader>t :sp term://zsh<cr>
+nnoremap <leader>ev :e 
 
 "" tabs
 "set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
@@ -37,6 +44,8 @@ set splitbelow
 set splitright
 
 "" NAVIGATION
+nnoremap j gj
+nnoremap k gk
 " windows
 " FIXME why does this not work h to l?
 nnoremap <C-j> <C-W><C-J>
