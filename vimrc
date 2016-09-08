@@ -2,6 +2,8 @@
 set number         " show line numbers
 set relativenumber " relative line numbers make jumps/yanks/dels easier
 " misc {{{1
+set nobackup
+set noswapfile
 let mapleader=","           " my leader is a comma
 syntax enable               " syntax highlighting
 set autowrite               " autosave
@@ -39,8 +41,9 @@ nnoremap <Leader>w :w<cr>
 nnoremap <Leader>q :q<cr>
 """split terminal:
 nnoremap <Leader>t :sp term://zsh<cr>
-"""jump to vimrc:
-nnoremap <Leader>v :e $MYVIMRC<cr>
+"""vimrc:
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " tabs {{{1
 set softtabstop=2 shiftwidth=2 expandtab
 " splits {{{1
