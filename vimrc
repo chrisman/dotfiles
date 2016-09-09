@@ -18,7 +18,7 @@ set listchars=tab:▸\ ,eol:¬ " show tabs and eol
 " folds {{{1
 set foldmethod=indent " fold based on indent
 set foldnestmax=10    " deepest fold is 10 levels
-"set nofoldenable      " disable fold by default
+set nofoldenable      " disable fold by default
 " searching {{{1
 set incsearch  " incremental searching
 set hlsearch   " highlight found
