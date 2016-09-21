@@ -1,4 +1,4 @@
-" line numbers {{{1
+" MISC/GENERAL {{{1
 """""""""""""""""""
 
 " show line numbers
@@ -6,15 +6,13 @@ set number
 " relative line numbers make jumps/yanks/dels easier
 set relativenumber
 
-" misc {{{1
-"""""""""""
-
 " I use git for backups. No swap files pls
 set nobackup
 set noswapfile
 
-" change leader to comma
-let mapleader=","
+" autoreload changed files with no local changed
+" (no more :e! all the time)
+set autoread
 
 " syntax highlighting
 syntax enable
@@ -30,9 +28,9 @@ set noerrorbells
 set fileformat=unix
 set fileformats=unix
 
-" hide buffers
+" hide buffers instead of closing them
 set hidden
-" autosave hidden buffers
+" write on jump
 set autowrite
 
 " list mode enables use of listchars
@@ -40,8 +38,9 @@ set list
 " show tabs and eol
 set listchars=tab:▸\ ,eol:¬
 
-" folds {{{1
+" FOLDS {{{1
 """"""""""""
+
 " fold based on indent
 set foldmethod=indent
 
@@ -51,7 +50,7 @@ set foldnestmax=10
 " disable fold by default
 "set nofoldenable
 
-" searching {{{1
+" SEARCHING {{{1
 """"""""""""""""
 
 " incremental searching
@@ -60,23 +59,19 @@ set incsearch
 " highlight found
 set hlsearch
 
-" case insensitive ...
+" case insensitive
 set ignorecase
-" ... unless capitalized
+" ...unless capitalized
 set smartcase
 
 " remove highlighting:
 nnoremap <silent> <Leader>/ :noh<CR>
 
-" blank lines {{{1
-""""""""""""""""""
+" RANDOM LEADER SHORTCUTS {{{1
+""""""""""""""""""""""""""""""
 
-" insert blank lines above or below
-nnoremap <Leader>o mao<Esc>`a
-nnoremap <Leader>O maO<Esc>`a
-
-" random shortcuts {{{1
-"""""""""""""""""""""""
+" change leader to comma
+let mapleader=","
 
 "quicker command mode:
 nnoremap <Space> :
@@ -84,25 +79,27 @@ nnoremap <Space> :
 "quicker access to q register:
 nnoremap Q @q
 
-"quicker write:
+" write and quit
 nnoremap <Leader>w :w<cr>
-
-"quicker quit:
 nnoremap <Leader>q :q<cr>
 
 "split terminal:
 nnoremap <Leader>t :sp term://zsh<cr>
 "
-"vimrc:
+"edit/source vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+"
+" insert blank lines above or below
+nnoremap <Leader>o mao<Esc>`a
+nnoremap <Leader>O maO<Esc>`a
 
-" tabs {{{1
+" TABS {{{1
 """""""""""
 
 set softtabstop=2 shiftwidth=2 expandtab
 
-" splits {{{1
+" SPLITS {{{1
 """""""""""""
 
 " open splits below
@@ -111,7 +108,7 @@ set splitbelow
 " open vsplits to the right
 set splitright
 
-" navigation {{{1
+" NAVIGATION {{{1
 """""""""""""""""
 
 "" windows {{{2
@@ -134,8 +131,7 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 
-" tabs {{{2
-"
+"" tabs {{{2
 """""""""""
 nnoremap tc :tabnew<Space>
 nnoremap tn :tabnext<CR>
@@ -143,9 +139,8 @@ nnoremap tp :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
-" plugins {{{1
+" PLUGINS {{{1
 """"""""""""""
-
 "" plug {{{2
 """"""""""""
 
@@ -174,7 +169,7 @@ nnoremap <Leader>f :CtrlPMRUFiles<CR>
 """"""""""""""""
 nnoremap <Leader>n :NERDTreeToggle<cr>
 
-" colors {{{1
+" COLORS {{{1
 """""""""""""
 set background=dark
 let g:airline_theme='kalisi'
