@@ -1,0 +1,12 @@
+[user]
+  name = Chris Brown
+  email = chris.brown@skookum.com
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore
+[web]
+  browser = google-chrome
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
