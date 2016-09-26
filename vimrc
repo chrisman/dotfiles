@@ -141,6 +141,19 @@ nnoremap tl :tablast<CR>
 
 " PLUGINS {{{1
 """"""""""""""
+
+"" neomake {{{2
+"""""""""""""""
+let g:neomake_warning_sign = {
+\ 'text': '✗',
+\ 'texthl': 'ErrorMsg',
+\ }
+
+let g:neomake_error_sign = {
+\ 'text': '⚠',
+\ 'texthl': 'ErrorMsg',
+\ }
+
 "" plug {{{2
 """"""""""""
 
@@ -156,6 +169,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] }
 Plug 'godlygeek/tabular'
+Plug 'neomake/neomake'
 call plug#end()
 
 "" ctrlp {{{2
