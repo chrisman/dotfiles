@@ -83,8 +83,8 @@ nnoremap Q @q
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>q :q<cr>
 
-"split terminal:
-nnoremap <Leader>t :sp term://zsh<cr>
+"split terminal, enter insert mode:
+nnoremap <Leader>t :sp term://zsh<cr>i
 "
 "edit/source vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -168,6 +168,7 @@ nnoremap <Leader>f :CtrlPMRUFiles<CR>
 "" nerdtree {{{2
 """"""""""""""""
 nnoremap <Leader>n :NERDTreeToggle<cr>
+
 
 " COLORS {{{1
 """""""""""""
