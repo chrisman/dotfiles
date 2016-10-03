@@ -1,10 +1,9 @@
 " MISC/GENERAL {{{1
 """""""""""""""""""
 
-" show line numbers
-set number
 " relative line numbers make jumps/yanks/dels easier
-set relativenumber
+" show line numbers
+set relativenumber number
 
 " I use git for backups. No swap files pls
 set nobackup
@@ -158,18 +157,26 @@ let g:neomake_error_sign = {
 """"""""""""
 
 call plug#begin('~/.vim/plugged')
+" looks and feels
 Plug 'freeo/vim-kalisi'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" file browser
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround' " surround
+Plug 'godlygeek/tabular' " columns
+Plug 'gorodinskiy/vim-coloresque' " CSS colors!
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] }
-Plug 'godlygeek/tabular'
 Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neosnippet.nvim'
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 "" ctrlp {{{2
