@@ -93,6 +93,10 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nnoremap <Leader>o mao<Esc>`a
 nnoremap <Leader>O maO<Esc>`a
 
+" I find myself repeating this a lot when editing JSON
+" Visual line select to matching bracket, delete it
+nnoremap <Leader>d V%d
+
 " TABS {{{1
 """""""""""
 
@@ -140,22 +144,18 @@ nnoremap tl :tablast<CR>
 
 " PLUGINS {{{1
 """"""""""""""
-
 "" neomake {{{2
 """""""""""""""
 let g:neomake_warning_sign = {
 \ 'text': '✗',
 \ 'texthl': 'ErrorMsg',
 \ }
-
 let g:neomake_error_sign = {
 \ 'text': '⚠',
 \ 'texthl': 'ErrorMsg',
 \ }
-
 "" plug {{{2
 """"""""""""
-
 call plug#begin('~/.vim/plugged')
 " looks and feels
 Plug 'freeo/vim-kalisi'
@@ -171,8 +171,9 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] }
 Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neosnippet.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'SirVer/ultisnips'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -181,16 +182,25 @@ call plug#end()
 
 "" ctrlp {{{2
 """""""""""""
-
 nnoremap <Leader>p :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :CtrlPMRUFiles<CR>
-
+"" snippets {{{2
+""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "" nerdtree {{{2
 """"""""""""""""
 nnoremap <Leader>n :NERDTreeToggle<cr>
-
-
+"" deoplete {{{2
+""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+"" ultisnips {{{2
+"""""""""""""""""
+let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsExpandTrigger="<tab>"
 " COLORS {{{1
 """""""""""""
 set background=dark
