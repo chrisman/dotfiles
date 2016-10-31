@@ -163,7 +163,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " file browser
 Plug 'scrooloose/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround' " surround
 Plug 'godlygeek/tabular' " columns
 Plug 'gorodinskiy/vim-coloresque' " CSS colors!
@@ -180,11 +179,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-"" ctrlp {{{2
-"""""""""""""
-nnoremap <Leader>p :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>f :CtrlPMRUFiles<CR>
 "" snippets {{{2
 """"""""""""""""
 let g:UltiSnipsExpandTrigger="<tab>"
