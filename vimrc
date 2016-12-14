@@ -198,6 +198,9 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " COLORS {{{1
 """""""""""""
 set background=dark
+" powerline fonts don't work good :(
+" keep em disabled for now
+let g:airline_powerline_fonts = 0
 let g:airline_theme='kalisi'
 colorscheme kalisi
 " }}} vim: fdm=marker
