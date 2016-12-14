@@ -55,6 +55,9 @@ set foldnestmax=10
 " incremental searching
 set incsearch
 
+" incremental live sub!
+set inccommand=split
+
 " highlight found
 set hlsearch
 
