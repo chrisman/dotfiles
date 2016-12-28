@@ -182,6 +182,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+"" airline {{{2
+"""""""""""""""
+let g:airline#extensions#tabline#enabled = 1 " show buffers
 "" snippets {{{2
 """"""""""""""""
 let g:UltiSnipsExpandTrigger="<tab>"
