@@ -72,6 +72,12 @@ nnoremap <silent> <Leader>/ :noh<CR>
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
+" buffers
+nnoremap <Leader>ff :CtrlP<CR>
+nnoremap <Leader><Leader> :CtrlPBuffer<CR>
+nnoremap <Leader>b :bn<CR>
+nnoremap <Leader>B :bN<CR>
+
 " change leader to comma
 let mapleader=","
 
@@ -147,16 +153,6 @@ nnoremap tl :tablast<CR>
 
 " PLUGINS {{{1
 """"""""""""""
-"" neomake {{{2
-"""""""""""""""
-let g:neomake_warning_sign = {
-\ 'text': '✗',
-\ 'texthl': 'ErrorMsg',
-\ }
-let g:neomake_error_sign = {
-\ 'text': '⚠',
-\ 'texthl': 'ErrorMsg',
-\ }
 "" plug {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
@@ -164,8 +160,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'freeo/vim-kalisi'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" file browser
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree' " file browser
+Plug 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plug 'tpope/vim-surround' " surround
 Plug 'godlygeek/tabular' " columns
 Plug 'gorodinskiy/vim-coloresque' " CSS colors!
@@ -182,6 +178,16 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+"" neomake {{{2
+"""""""""""""""
+let g:neomake_warning_sign = {
+\ 'text': '✗',
+\ 'texthl': 'ErrorMsg',
+\ }
+let g:neomake_error_sign = {
+\ 'text': '⚠',
+\ 'texthl': 'ErrorMsg',
+\ }
 "" airline {{{2
 """""""""""""""
 let g:airline#extensions#tabline#enabled = 1 " show buffers
@@ -201,6 +207,13 @@ let g:deoplete#enable_at_startup = 1
 """""""""""""""""
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
+"" ctrlp {{{2
+"""""""""""""
+let g:ctrlp_use_caching=0
+let g:ctrlp_custom_ignore = 'bin$\|build$\|node_modules$\|.git|.bak|.swp|.pyc|.class'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_max_files=0
+let g:ctrlp_max_height = 18
 " COLORS {{{1
 """""""""""""
 set background=dark
