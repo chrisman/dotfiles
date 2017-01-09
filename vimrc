@@ -1,3 +1,5 @@
+"UltiSnips: the Python version from g:UltiSnipsUsePythonVersion (3) is not
+"available.
 " MISC/GENERAL {{{1
 """""""""""""""""""
 
@@ -191,11 +193,6 @@ let g:neomake_error_sign = {
 "" airline {{{2
 """""""""""""""
 let g:airline#extensions#tabline#enabled = 1 " show buffers
-"" snippets {{{2
-""""""""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "" nerdtree {{{2
 """"""""""""""""
 nnoremap <Leader>n :NERDTreeToggle<cr>
@@ -207,6 +204,9 @@ let g:deoplete#enable_at_startup = 1
 """""""""""""""""
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "" ctrlp {{{2
 """""""""""""
 let g:ctrlp_use_caching=0
