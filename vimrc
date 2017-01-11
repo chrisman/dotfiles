@@ -73,14 +73,14 @@ nnoremap <silent> <Leader>/ :noh<CR>
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
+" change leader to comma
+let mapleader=","
+
 " buffers
 nnoremap <Leader>ff :CtrlP<CR>
 nnoremap <Leader><Leader> :CtrlPBuffer<CR>
 nnoremap <Leader>b :bn<CR>
 nnoremap <Leader>B :bN<CR>
-
-" change leader to comma
-let mapleader=","
 
 "quicker command mode:
 nnoremap <Space> :
