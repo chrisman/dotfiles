@@ -1,4 +1,3 @@
-"UltiSnips: the Python version from g:UltiSnipsUsePythonVersion (3) is not
 "available.
 " MISC/GENERAL {{{1
 """""""""""""""""""
