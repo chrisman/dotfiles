@@ -96,4 +96,7 @@ export NVM_DIR="/Users/cb/.nvm" # home env
 # suffix aliases!
 alias -s js=vim
 
+# love
+alias love="/Applications/love.app/Contents/MacOS/love"
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
