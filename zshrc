@@ -53,7 +53,7 @@ plugins=(git tmux)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -99,3 +99,4 @@ alias -s js=vim
 # love
 alias love="/Applications/love.app/Contents/MacOS/love"
 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
