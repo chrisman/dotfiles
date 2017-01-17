@@ -1,4 +1,3 @@
-"available.
 " MISC/GENERAL {{{1
 """""""""""""""""""
 
@@ -57,6 +56,7 @@ set foldnestmax=10
 set incsearch
 
 " incremental live sub!
+" requires NVIM v0.1.7
 set inccommand=split
 
 " highlight found
@@ -67,14 +67,14 @@ set ignorecase
 " ...unless capitalized
 set smartcase
 
-" remove highlighting:
-nnoremap <silent> <Leader>/ :noh<CR>
-
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
 " change leader to comma
 let mapleader=","
+
+" remove highlighting:
+nnoremap <silent> <Leader>/ :noh<CR>
 
 " buffers
 nnoremap <Leader>ff :CtrlP<CR>
@@ -95,7 +95,7 @@ nnoremap <Leader>q :q<cr>
 "split terminal, enter insert mode:
 nnoremap <Leader>t :sp term://zsh<cr>i
 "
-"edit/source vimrc
+"edit vimrc/source vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "
@@ -146,6 +146,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 "" tabs {{{2
 """""""""""
+" Delete this? I don't really use tabs
 nnoremap tc :tabnew<Space>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprev<CR>
@@ -157,26 +158,24 @@ nnoremap tl :tablast<CR>
 "" plug {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-" looks and feels
-Plug 'freeo/vim-kalisi'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'freeo/vim-kalisi' " looks and feels
+Plug 'vim-airline/vim-airline' " looks and feels
+Plug 'vim-airline/vim-airline-themes' " looks and feels
+Plug 'gorodinskiy/vim-coloresque' " CSS colors!
 Plug 'scrooloose/nerdtree' " file browser
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plug 'tpope/vim-surround' " surround
 Plug 'godlygeek/tabular' " columns
-Plug 'gorodinskiy/vim-coloresque' " CSS colors!
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'elmcast/elm-vim', { 'for': 'elm' }
-Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] }
-Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'SirVer/ultisnips'
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim', { 'for': 'html' } " html expander
+Plug 'neomake/neomake' " async make
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " completion
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " deoplete for js
+Plug 'SirVer/ultisnips' " snippets
+Plug 'elmcast/elm-vim', { 'for': 'elm' } " elm support
+Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
+Plug 'tpope/vim-fugitive' " git
+Plug 'Xuyuanp/nerdtree-git-plugin' " git
+Plug 'airblade/vim-gitgutter' " git
 call plug#end()
 
 "" neomake {{{2
@@ -197,7 +196,6 @@ let g:airline#extensions#tabline#enabled = 1 " show buffers
 nnoremap <Leader>n :NERDTreeToggle<cr>
 "" deoplete {{{2
 """"""""""""""""
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_at_startup = 1
 "" ultisnips {{{2
 """""""""""""""""
