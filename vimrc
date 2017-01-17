@@ -171,6 +171,7 @@ Plug 'neomake/neomake' " async make
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " completion
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " deoplete for js
 Plug 'SirVer/ultisnips' " snippets
+Plug 'honza/vim-snippets' " starter snippets
 Plug 'elmcast/elm-vim', { 'for': 'elm' } " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'tpope/vim-fugitive' " git
@@ -200,10 +201,10 @@ let g:deoplete#enable_at_startup = 1
 "" ultisnips {{{2
 """""""""""""""""
 let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 "" ctrlp {{{2
 """""""""""""
 let g:ctrlp_use_caching=0
