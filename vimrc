@@ -166,13 +166,14 @@ Plug 'scrooloose/nerdtree' " file browser
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plug 'tpope/vim-surround' " surround
 Plug 'godlygeek/tabular' " columns
-Plug 'mattn/emmet-vim', { 'for': 'html' } " html expander
+Plug 'mattn/emmet-vim', { 'for': [ 'html', 'vue' ] } " html expander
 Plug 'neomake/neomake' " async make
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " completion
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " deoplete for js
 Plug 'SirVer/ultisnips' " snippets
 Plug 'honza/vim-snippets' " starter snippets
 Plug 'elmcast/elm-vim', { 'for': 'elm' } " elm support
+Plug 'posva/vim-vue', { 'for': 'vue' } " vue component support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'tpope/vim-fugitive' " git
 Plug 'Xuyuanp/nerdtree-git-plugin' " git
