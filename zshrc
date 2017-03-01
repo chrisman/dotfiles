@@ -89,6 +89,9 @@ bindkey -v
 # neovim!
 alias vim=nvim
 
+# Go Home
+alias gh=cd ~
+
 # nvm!
 export NVM_DIR="/Users/cb/.nvm" # home env
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -98,7 +98,10 @@ nnoremap <Leader>t :sp term://zsh<cr>i
 "edit vimrc/source vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-"
+
+" Explorer
+nnoremap <Leader>n :Vex<CR>
+
 " insert blank lines above or below
 nnoremap <Leader>o mao<Esc>`a
 nnoremap <Leader>O maO<Esc>`a
@@ -153,6 +156,14 @@ nnoremap tp :tabprev<CR>
 nnoremap th :tabfirst<CR>
 nnoremap tl :tablast<CR>
 
+"" netrw {{{2
+"""""""""""""
+let g:netrw_banner       = 0 " remove banner
+let g:netrw_liststyle    = 3 " tree view
+let g:netrw_browse_split = 4 " open in prev window
+let g:netrw_altv         = 1
+let g:netrw_winsize      = 25
+
 " PLUGINS {{{1
 """"""""""""""
 "" plug {{{2
@@ -162,7 +173,6 @@ Plug 'freeo/vim-kalisi' " looks and feels
 Plug 'vim-airline/vim-airline' " looks and feels
 Plug 'vim-airline/vim-airline-themes' " looks and feels
 Plug 'gorodinskiy/vim-coloresque' " CSS colors!
-Plug 'scrooloose/nerdtree' " file browser
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy search
 Plug 'tpope/vim-surround' " surround
 Plug 'godlygeek/tabular' " columns
@@ -176,7 +186,6 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' } " elm support
 Plug 'posva/vim-vue', { 'for': 'vue' } " vue component support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'tpope/vim-fugitive' " git
-Plug 'Xuyuanp/nerdtree-git-plugin' " git
 Plug 'airblade/vim-gitgutter' " git
 call plug#end()
 
@@ -193,9 +202,6 @@ let g:neomake_error_sign = {
 "" airline {{{2
 """""""""""""""
 let g:airline#extensions#tabline#enabled = 1 " show buffers
-"" nerdtree {{{2
-""""""""""""""""
-nnoremap <Leader>n :NERDTreeToggle<cr>
 "" deoplete {{{2
 """"""""""""""""
 let g:deoplete#enable_at_startup = 1
