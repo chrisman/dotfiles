@@ -169,23 +169,23 @@ let g:netrw_winsize      = 25
 "" plug {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'freeo/vim-kalisi' " looks and feels
-Plug 'vim-airline/vim-airline' " looks and feels
-Plug 'vim-airline/vim-airline-themes' " looks and feels
-Plug 'gorodinskiy/vim-coloresque' " CSS colors!
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy search
-Plug 'tpope/vim-surround' " surround
-Plug 'godlygeek/tabular' " columns
-Plug 'mattn/emmet-vim', { 'for': 'html' } " html expander
-Plug 'neomake/neomake' " async make
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " completion
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " deoplete for js
-Plug 'SirVer/ultisnips' " snippets
-Plug 'honza/vim-snippets' " starter snippets
-Plug 'elmcast/elm-vim', { 'for': 'elm' } " elm support
+Plug 'freeo/vim-kalisi'                                            " looks and feels
+Plug 'vim-airline/vim-airline'                                     " looks and feels
+Plug 'vim-airline/vim-airline-themes'                              " looks and feels
+Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
+Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search
+Plug 'tpope/vim-surround'                                          " surround
+Plug 'godlygeek/tabular'                                           " columns
+Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
+Plug 'neomake/neomake'                                             " async make
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
+Plug 'SirVer/ultisnips'                                            " snippets
+Plug 'honza/vim-snippets'                                          " starter snippets
+Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
-Plug 'tpope/vim-fugitive' " git
-Plug 'airblade/vim-gitgutter' " git
+Plug 'tpope/vim-fugitive'                                          " git
+Plug 'airblade/vim-gitgutter'                                      " git
 call plug#end()
 
 "" neomake {{{2
