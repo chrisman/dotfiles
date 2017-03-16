@@ -181,9 +181,9 @@ Plug 'tpope/vim-surround'                                          " surround
 Plug 'godlygeek/tabular'                                           " columns
 Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
 Plug 'neomake/neomake'                                             " async make
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
-"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
-"Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
+Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
 Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
@@ -207,7 +207,7 @@ let g:neomake_error_sign = {
 let g:airline#extensions#tabline#enabled = 1 " show buffers
 "" deoplete {{{2
 """"""""""""""""
-"let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 "" ultisnips {{{2
 """""""""""""""""
 let g:UltiSnipsUsePythonVersion = 3
