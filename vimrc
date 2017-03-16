@@ -113,7 +113,10 @@ nnoremap <Leader>d V%d
 " TABS {{{1
 """""""""""
 
-set softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2     " tabs are two spaces long. the default is 8?? what is wrong with you
+set softtabstop=2 " typing <TAB> inserts two spaces
+set shiftwidth=2  " autoindent spaces, i.e. `<<` and `>>`
+set expandtab     " use the right no. of spaces in Insert mode
 
 " SPLITS {{{1
 """""""""""""
@@ -180,6 +183,7 @@ Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expand
 Plug 'neomake/neomake'                                             " async make
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
+Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
 Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
