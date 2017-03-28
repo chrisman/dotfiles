@@ -100,7 +100,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Explorer
-nnoremap <Leader>n :Vex<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " insert blank lines above or below
 nnoremap <Leader>o mao<Esc>`a
@@ -188,6 +188,8 @@ Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 call plug#end()
