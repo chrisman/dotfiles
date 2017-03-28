@@ -113,7 +113,10 @@ nnoremap <Leader>d V%d
 " TABS {{{1
 """""""""""
 
-set softtabstop=2 shiftwidth=2 expandtab
+set tabstop=2     " tabs are two spaces long. the default is 8?? what is wrong with you
+set softtabstop=2 " typing <TAB> inserts two spaces
+set shiftwidth=2  " autoindent spaces, i.e. `<<` and `>>`
+set expandtab     " use the right no. of spaces in Insert mode
 
 " SPLITS {{{1
 """""""""""""
@@ -169,24 +172,24 @@ let g:netrw_winsize      = 25
 "" plug {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'freeo/vim-kalisi' " looks and feels
-Plug 'vim-airline/vim-airline' " looks and feels
-Plug 'vim-airline/vim-airline-themes' " looks and feels
-Plug 'gorodinskiy/vim-coloresque' " CSS colors!
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy search
-Plug 'tpope/vim-surround' " surround
-Plug 'godlygeek/tabular' " columns
-Plug 'mattn/emmet-vim', { 'for': [ 'html', 'vue' ] } " html expander
-Plug 'neomake/neomake' " async make
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " completion
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' } " deoplete for js
-Plug 'SirVer/ultisnips' " snippets
-Plug 'honza/vim-snippets' " starter snippets
-Plug 'elmcast/elm-vim', { 'for': 'elm' } " elm support
-Plug 'posva/vim-vue', { 'for': 'vue' } " vue component support
+Plug 'freeo/vim-kalisi'                                            " looks and feels
+Plug 'vim-airline/vim-airline'                                     " looks and feels
+Plug 'vim-airline/vim-airline-themes'                              " looks and feels
+Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
+Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search
+Plug 'tpope/vim-surround'                                          " surround
+Plug 'godlygeek/tabular'                                           " columns
+Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
+Plug 'neomake/neomake'                                             " async make
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
+Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
+Plug 'SirVer/ultisnips'                                            " snippets
+Plug 'honza/vim-snippets'                                          " starter snippets
+Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
-Plug 'tpope/vim-fugitive' " git
-Plug 'airblade/vim-gitgutter' " git
+Plug 'tpope/vim-fugitive'                                          " git
+Plug 'airblade/vim-gitgutter'                                      " git
 call plug#end()
 
 "" neomake {{{2
