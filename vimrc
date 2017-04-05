@@ -186,7 +186,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete fo
 Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
 Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
-Plug 'digitaltoad/vim-pug' { 'for': ['jade', 'pug'] }
+Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'scrooloose/nerdtree'
