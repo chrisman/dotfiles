@@ -180,6 +180,7 @@ Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy searc
 Plug 'tpope/vim-surround'                                          " surround
 Plug 'godlygeek/tabular'                                           " columns
 Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
+Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }             " pug syntax
 Plug 'neomake/neomake'                                             " async make
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
