@@ -172,7 +172,7 @@ let g:netrw_winsize      = 25
 "" plug {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'freeo/vim-kalisi'                                            " looks and feels
+Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'                                     " looks and feels
 Plug 'vim-airline/vim-airline-themes'                              " looks and feels
 Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
@@ -231,6 +231,6 @@ set background=dark
 " powerline fonts don't work good :(
 " keep em disabled for now
 let g:airline_powerline_fonts = 0
-let g:airline_theme='kalisi'
-colorscheme kalisi
+let g:airline_theme='one'
+colorscheme one
 " }}} vim: fdm=marker
