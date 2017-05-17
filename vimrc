@@ -187,7 +187,7 @@ Plug 'fishbullet/deoplete-ruby'                                    " deoplete fo
 Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
 Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-Plug 'nono/vim-handlebars', { 'for': ['hbs'] }
+Plug 'nono/vim-handlebars', { 'for': 'hbs' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'scrooloose/nerdtree'
