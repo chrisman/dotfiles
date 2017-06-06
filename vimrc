@@ -179,7 +179,7 @@ Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
 Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search
 Plug 'tpope/vim-surround'                                          " surround
 Plug 'godlygeek/tabular'                                           " columns
-Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
+Plug 'mattn/emmet-vim'                          " html expander
 Plug 'neomake/neomake'                                             " async make
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
@@ -187,7 +187,7 @@ Plug 'fishbullet/deoplete-ruby'                                    " deoplete fo
 Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
 Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-Plug 'nono/vim-handlebars', { 'for': 'hbs' }
+Plug 'nono/vim-handlebars'
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'scrooloose/nerdtree'
