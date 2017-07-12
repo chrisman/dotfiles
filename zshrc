@@ -103,3 +103,4 @@ alias -s js=vim
 alias love="/Applications/love.app/Contents/MacOS/love"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias gotandem='bundle exec foreman start -f Procfile.dev'
