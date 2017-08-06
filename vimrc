@@ -81,6 +81,7 @@ nnoremap <Leader>ff :CtrlP<CR>
 nnoremap <Leader><Leader> :CtrlPBuffer<CR>
 nnoremap <Leader>b :bn<CR>
 nnoremap <Leader>B :bN<CR>
+nnoremap <Leader>v <C-^> " C-^ is a contender for Most Uncomfortable Key Sequence
 
 "quicker command mode:
 nnoremap <Space> :
@@ -172,7 +173,7 @@ let g:netrw_winsize      = 25
 "" plug {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'freeo/vim-kalisi'                                            " looks and feels
+Plug 'freeo/vim-kalisi'
 Plug 'vim-airline/vim-airline'                                     " looks and feels
 Plug 'vim-airline/vim-airline-themes'                              " looks and feels
 Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
@@ -188,7 +189,10 @@ Plug 'fishbullet/deoplete-ruby'                                    " deoplete fo
 Plug 'SirVer/ultisnips'                                            " snippets
 Plug 'honza/vim-snippets'                                          " starter snippets
 Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
+Plug 'nono/vim-handlebars'
+Plug 'slim-template/vim-slim'                                      " slim (rails template)
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
+Plug 'pbogut/deoplete-elm'                                         " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -196,6 +200,9 @@ Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 call plug#end()
 
+"" elm {{{2
+"""""""""""
+let g:elm_format_autosave = 1
 "" neomake {{{2
 """""""""""""""
 let g:neomake_warning_sign = {
