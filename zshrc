@@ -89,9 +89,6 @@ bindkey -v
 # neovim!
 alias vim=nvim
 
-# Go Home
-alias gh=cd ~
-
 # nvm!
 export NVM_DIR="/Users/cb/.nvm" # home env
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -103,4 +100,4 @@ alias -s js=vim
 alias love="/Applications/love.app/Contents/MacOS/love"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-alias gotandem='bundle exec foreman start -f Procfile.dev'
+alias gh="open `git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'`| head -n1" # open git repo
