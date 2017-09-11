@@ -135,11 +135,10 @@ set splitright
 """""""""""""""
 
 "" skip the c-w
-"" FIXME why does this not work h to l?
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 "" neovim terminal keybinding {{{2
 """"""""""""""""""""""""""""""""""
@@ -150,23 +149,6 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
-
-"" tabs {{{2
-"""""""""""
-" Delete this? I don't really use tabs
-nnoremap tc :tabnew<Space>
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tl :tablast<CR>
-
-"" netrw {{{2
-"""""""""""""
-let g:netrw_banner       = 0 " remove banner
-let g:netrw_liststyle    = 3 " tree view
-let g:netrw_browse_split = 4 " open in prev window
-let g:netrw_altv         = 1
-let g:netrw_winsize      = 25
 
 " PLUGINS {{{1
 """"""""""""""
@@ -197,6 +179,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
+Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
 call plug#end()
 
 "" elm {{{2
