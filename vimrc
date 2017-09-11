@@ -67,6 +67,9 @@ set ignorecase
 " ...unless capitalized
 set smartcase
 
+" global replace by default
+set gdefault
+
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
