@@ -76,15 +76,18 @@ set gdefault
 " change leader to comma
 let mapleader=","
 
+" toggle spell check
+nnoremap <Leader>s :setlocal spell! spelllang=en_us<CR>
+
 " remove highlighting:
 nnoremap <silent> <Leader>/ :noh<CR>
 
 " buffers
-nnoremap <Leader>ff :CtrlP<CR>
-nnoremap <Leader><Leader> :CtrlPBuffer<CR>
-nnoremap <Leader>b :bn<CR>
-nnoremap <Leader>B :bN<CR>
-nnoremap <Leader>v <C-^> " C-^ is a contender for Most Uncomfortable Key Sequence
+nnoremap <Leader>ff :CtrlP<CR>             " CtrlP: fuzzy search project
+nnoremap <Leader><Leader> :CtrlPBuffer<CR> " CtrlP: fuzzy search open buffers
+nnoremap <Leader>b :bn<CR>                 " next buffer
+nnoremap <Leader>B :bN<CR>                 " prev buffer
+nnoremap <Leader>v <C-^>                   " Last buffer. C-^ is a contender for Most Uncomfortable Key Sequence Ever
 
 "quicker command mode:
 nnoremap <Space> :
