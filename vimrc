@@ -79,6 +79,11 @@ let mapleader=","
 " toggle spell check
 nnoremap <Leader>s :setlocal spell! spelllang=en_us<CR>
 
+" open in eXternal application
+" eXecute file?
+" handy for viewing markdown in external viewer
+nnoremap <Leader>x :silent !open %<CR>
+
 " remove highlighting:
 nnoremap <silent> <Leader>/ :noh<CR>
 
