@@ -196,6 +196,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
+Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
 call plug#end()
 
 "" elm {{{2
