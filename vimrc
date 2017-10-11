@@ -143,6 +143,10 @@ set splitright
 " NAVIGATION {{{1
 """""""""""""""""
 
+" Move lines up and down a la Atom w. Alt-k and Alt-j
+nnoremap <A-k> :m-2<CR>==
+nnoremap <A-j> :m+1<CR>==
+
 "" windows {{{2
 """""""""""""""
 
