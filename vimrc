@@ -81,7 +81,8 @@ nnoremap <Leader>s :setlocal spell! spelllang=en_us<CR>
 
 " open in eXternal application
 " eXecute file?
-" handy for viewing markdown in external viewer
+" handy for viewing markdown in external viewer for example. Or HTML in a
+" browser.
 nnoremap <Leader>x :silent !open %<CR>
 
 " remove highlighting:
