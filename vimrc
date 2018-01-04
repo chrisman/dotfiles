@@ -89,8 +89,6 @@ nnoremap <Leader>x :silent !open %<CR>
 nnoremap <silent> <Leader>/ :noh<CR>
 
 " buffers
-nnoremap <Leader>ff :CtrlP<CR>             " CtrlP: fuzzy search project
-nnoremap <Leader><Leader> :CtrlPBuffer<CR> " CtrlP: fuzzy search open buffers
 nnoremap <Leader>b :bn<CR>                 " next buffer
 nnoremap <Leader>B :bN<CR>                 " prev buffer
 nnoremap <Leader>v <C-^>                   " Last buffer. C-^ is a contender for Most Uncomfortable Key Sequence Ever
@@ -123,6 +121,9 @@ nnoremap <Leader>O maO<Esc>`a
 " Visual line select to matching bracket, delete it
 nnoremap <Leader>d V%d
 
+" Brace completion
+inoremap {<CR> {<CR>}<Esc>ko
+
 " TABS {{{1
 """""""""""
 
@@ -143,9 +144,9 @@ set splitright
 " NAVIGATION {{{1
 """""""""""""""""
 
-" Move lines up and down a la Atom w. Alt-k and Alt-j
-nnoremap <A-k> :m-2<CR>==
-nnoremap <A-j> :m+1<CR>==
+" Move lines up and down a la Atom.
+noremap <M-k> :m-2<CR>==
+noremap <M-j> :m+1<CR>==
 
 "" windows {{{2
 """""""""""""""
@@ -175,7 +176,6 @@ Plug 'freeo/vim-kalisi'
 Plug 'vim-airline/vim-airline'                                     " looks and feels
 Plug 'vim-airline/vim-airline-themes'                              " looks and feels
 Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
-Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search
 Plug 'tpope/vim-surround'                                          " surround
 Plug 'godlygeek/tabular'                                           " columns
 Plug 'mattn/emmet-vim'                                             " html expander
@@ -197,6 +197,7 @@ Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
 Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 "" elm {{{2
@@ -225,13 +226,6 @@ let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"" ctrlp {{{2
-"""""""""""""
-let g:ctrlp_use_caching=0
-let g:ctrlp_custom_ignore = 'bin$\|build$\|node_modules$\|.git|.bak|.swp|.pyc|.class'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_files=0
-let g:ctrlp_max_height = 18
 " COLORS {{{1
 """""""""""""
 set background=dark
