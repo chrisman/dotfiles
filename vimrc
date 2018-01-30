@@ -70,6 +70,10 @@ set smartcase
 " global replace by default
 set gdefault
 
+" easymotion by default
+map f <Plug>(easymotion-bd-f)
+let g:EasyMotion_smartcase = 1
+
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
@@ -197,7 +201,8 @@ Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
 Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'                                   " easy `avy word` style jumping
+Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search of buffers, etc
 call plug#end()
 
 "" elm {{{2
@@ -226,6 +231,10 @@ let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"" ctrlp {{{2
+"""""""""""""""""
+let g:ctrlp_cmd = 'CtrlPBuffer'
+
 " COLORS {{{1
 """""""""""""
 set background=dark
