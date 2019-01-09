@@ -5,6 +5,9 @@
 " show line numbers
 set relativenumber number
 
+" set file encoding
+set fileencodings=utf-8
+
 " I use git for backups. No swap files pls
 set nobackup
 set noswapfile
@@ -16,8 +19,8 @@ set autoread
 " syntax highlighting
 syntax enable
 
-" wrap lines
-set wrap
+" wrap lines without breaking words
+set wrap linebreak
 
 " no beeps
 set visualbell
@@ -36,6 +39,9 @@ set autowrite
 set list
 " show tabs and eol
 set listchars=tab:▸\ ,eol:¬
+
+" highlight current line plz
+set cursorline
 
 " FOLDS {{{1
 """"""""""""
@@ -71,7 +77,7 @@ set smartcase
 set gdefault
 
 " easymotion by default
-map f <Plug>(easymotion-bd-f)
+map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
 
 " RANDOM LEADER SHORTCUTS {{{1
@@ -93,9 +99,9 @@ nnoremap <Leader>x :silent !open %<CR>
 nnoremap <silent> <Leader>/ :noh<CR>
 
 " buffers
-nnoremap <Leader>b :bn<CR>                 " next buffer
-nnoremap <Leader>B :bN<CR>                 " prev buffer
-nnoremap <Leader>v <C-^>                   " Last buffer. C-^ is a contender for Most Uncomfortable Key Sequence Ever
+nnoremap <Leader>b :bn<CR>   " next buffer
+nnoremap <Leader>B :bN<CR>   " prev buffer
+nnoremap <Leader>v <C-^>     " Last buffer. C-^ is a contender for Most Uncomfortable Key Sequence Ever
 
 "quicker command mode:
 nnoremap <Space> :
@@ -183,26 +189,28 @@ Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
 Plug 'tpope/vim-surround'                                          " surround
 Plug 'godlygeek/tabular'                                           " columns
 Plug 'mattn/emmet-vim'                                             " html expander
-Plug 'neomake/neomake'                                             " async make
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
-Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
-Plug 'SirVer/ultisnips'                                            " snippets
-Plug 'honza/vim-snippets'                                          " starter snippets
-Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-Plug 'nono/vim-handlebars'
+"Plug 'neomake/neomake'                                             " async make
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
+"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'js' }   " deoplete for js
+"Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
+"Plug 'SirVer/ultisnips'                                            " snippets
+"Plug 'honza/vim-snippets'                                          " starter snippets
+Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }             " the pug HTML templating language
+Plug 'nono/vim-handlebars'                                         " handlebars HTML templating
 Plug 'slim-template/vim-slim'                                      " slim (rails template)
 Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
-Plug 'pbogut/deoplete-elm'                                         " elm support
+Plug 'toyamarinyon/vim-swift', { 'for': 'swift' }                  " swift support
+"Plug 'pbogut/deoplete-elm'                                         " elm support
 Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'                                         " file browser
+Plug 'Xuyuanp/nerdtree-git-plugin'                                 " git status in nerdtree
 Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
 Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
-Plug 'easymotion/vim-easymotion'                                   " easy `avy word` style jumping
-Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search of buffers, etc
+"Plug 'easymotion/vim-easymotion'                                   " easy `avy word` style jumping
+"Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search of buffers, etc
+Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex'] }         " elixir
 call plug#end()
 
 "" elm {{{2
@@ -223,7 +231,7 @@ let g:neomake_error_sign = {
 let g:airline#extensions#tabline#enabled = 1 " show buffers
 "" deoplete {{{2
 """"""""""""""""
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 0
 "" ultisnips {{{2
 """""""""""""""""
 let g:UltiSnipsUsePythonVersion = 3
