@@ -90,7 +90,7 @@ bindkey -v
 alias vim=nvim
 
 # nvm!
-export NVM_DIR="/Users/cb/.nvm" # home env
+export NVM_DIR="/Users/chris.brown/.nvm" # home env
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # suffix aliases!
@@ -120,3 +120,4 @@ function ts {
 export PATH="$HOME/.fastlane/bin:$PATH"
 # haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"

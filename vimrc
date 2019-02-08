@@ -210,7 +210,7 @@ Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
 Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
 "Plug 'easymotion/vim-easymotion'                                   " easy `avy word` style jumping
 "Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search of buffers, etc
-Plug 'elixir-editors/vim-elixir', { 'for': ['exs', 'ex'] }         " elixir
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }         " elixir
 call plug#end()
 
 "" elm {{{2
