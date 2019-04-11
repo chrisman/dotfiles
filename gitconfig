@@ -1,7 +1,6 @@
 [user]
   name = Christopher P. Brown
   email = christopher.p.brown@gmail.com
-  username = chrisman
   signingkey = 058F57D2
 [core]
   editor = nvim
