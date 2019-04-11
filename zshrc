@@ -88,6 +88,7 @@ bindkey -v
 
 # neovim!
 alias vim=nvim
+alias vimdiff="nvim -d"
 
 # nvm!
 export NVM_DIR="/Users/chris.brown/.nvm" # home env
@@ -121,3 +122,7 @@ export PATH="$HOME/.fastlane/bin:$PATH"
 # haskell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
+# for gpg signing
+GPG_TTY=$(tty)
+export GPG_TTY
