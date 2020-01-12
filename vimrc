@@ -177,62 +177,19 @@ Plug 'freeo/vim-kalisi'
 Plug 'vim-airline/vim-airline'                                     " looks and feels
 Plug 'vim-airline/vim-airline-themes'                              " looks and feels
 Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
-Plug 'ctrlpvim/ctrlp.vim'                                          " fuzzy search
 Plug 'tpope/vim-surround'                                          " surround
 Plug 'godlygeek/tabular'                                           " columns
 Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
 Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }             " pug syntax
-Plug 'neomake/neomake'                                             " async make
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }      " completion
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }   " deoplete for js
-Plug 'fishbullet/deoplete-ruby'                                    " deoplete for roobie
-Plug 'SirVer/ultisnips'                                            " snippets
-Plug 'honza/vim-snippets'                                          " starter snippets
-Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-Plug 'nono/vim-handlebars'
-Plug 'slim-template/vim-slim'                                      " slim (rails template)
-Plug 'elmcast/elm-vim', { 'for': 'elm' }                           " elm support
-Plug 'pbogut/deoplete-elm'                                         " elm support
-Plug 'leafgarland/typescript-vim', { 'for': ['ts', 'typescript'] } " typescript support
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
 call plug#end()
 
-"" elm {{{2
-"""""""""""
-let g:elm_format_autosave = 1
-"" neomake {{{2
-"""""""""""""""
-let g:neomake_warning_sign = {
-\ 'text': '✗',
-\ 'texthl': 'ErrorMsg',
-\ }
-let g:neomake_error_sign = {
-\ 'text': '⚠',
-\ 'texthl': 'ErrorMsg',
-\ }
 "" airline {{{2
 """""""""""""""
 let g:airline#extensions#tabline#enabled = 1 " show buffers
-"" deoplete {{{2
-""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-"" ultisnips {{{2
-"""""""""""""""""
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-"" ctrlp {{{2
-"""""""""""""
-let g:ctrlp_use_caching=0
-let g:ctrlp_custom_ignore = 'bin$\|build$\|node_modules$\|.git|.bak|.swp|.pyc|.class'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_max_files=0
-let g:ctrlp_max_height = 18
 " COLORS {{{1
 """""""""""""
 set background=dark
