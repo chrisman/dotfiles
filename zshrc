@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="pygmalion"
+ZSH_THEME="sunaku"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -88,12 +88,10 @@ bindkey -v
 
 # neovim!
 alias vim=nvim
-
-# Go Home
-alias gh=cd ~
+alias vimdiff="nvim -d"
 
 # nvm!
-export NVM_DIR="/Users/cb/.nvm" # home env
+export NVM_DIR="/Users/chris.brown/.nvm" # home env
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # suffix aliases!
@@ -101,6 +99,30 @@ alias -s js=vim
 
 # love
 alias love="/Applications/love.app/Contents/MacOS/love"
+# tintin++
+alias tt="tt++ ~/.tintin/main.tin"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-alias gotandem='bundle exec foreman start -f Procfile.dev'
+
+# open git repo
+# is a function because i couldn't ever escape all the quotes correctly
+# is named `gx` to mirror the vim command. see `:help gx`
+gx () {
+  git remote -v | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//' | head -n1 | xargs open
+}
+
+# tmux-send
+function ts {
+  args = $@
+  tmux send-keys -t right "$args" C-m
+}
+
+# fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+# haskell
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+
+# for gpg signing
+GPG_TTY=$(tty)
+export GPG_TTY

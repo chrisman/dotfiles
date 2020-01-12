@@ -1,6 +1,7 @@
 [user]
-  name = Chris Brown
-  email = chris.brown@skookum.com
+  name = Christopher P. Brown
+  email = christopher.p.brown@gmail.com
+  signingkey = 058F57D2
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
@@ -8,6 +9,14 @@
 [web]
   browser = google-chrome
 [diff]
-  tool = vimdiff
+  tool = nvim
+[difftool "nvim"]
+  cmd = "nvim -d $LOCAL $REMOTE"
+[difftool]
+  prompt = false
 [merge]
   tool = vimdiff
+[alias]
+  praise = blame
+[commit]
+  gpgsign = true

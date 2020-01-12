@@ -5,6 +5,9 @@
 " show line numbers
 set relativenumber number
 
+" set file encoding
+set fileencodings=utf-8
+
 " I use git for backups. No swap files pls
 set nobackup
 set noswapfile
@@ -16,8 +19,8 @@ set autoread
 " syntax highlighting
 syntax enable
 
-" wrap lines
-set wrap
+" wrap lines without breaking words
+set wrap linebreak
 
 " no beeps
 set visualbell
@@ -36,6 +39,9 @@ set autowrite
 set list
 " show tabs and eol
 set listchars=tab:▸\ ,eol:¬
+
+" highlight current line plz
+set cursorline
 
 " FOLDS {{{1
 """"""""""""
@@ -67,21 +73,35 @@ set ignorecase
 " ...unless capitalized
 set smartcase
 
+" global replace by default
+set gdefault
+
+" easymotion by default
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase = 1
+
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
 " change leader to comma
 let mapleader=","
 
+" toggle spell check
+nnoremap <Leader>s :setlocal spell! spelllang=en_us<CR>
+
+" open in eXternal application
+" eXecute file?
+" handy for viewing markdown in external viewer for example. Or HTML in a
+" browser.
+nnoremap <Leader>x :silent !open %<CR>
+
 " remove highlighting:
 nnoremap <silent> <Leader>/ :noh<CR>
 
 " buffers
-nnoremap <Leader>ff :CtrlP<CR>
-nnoremap <Leader><Leader> :CtrlPBuffer<CR>
-nnoremap <Leader>b :bn<CR>
-nnoremap <Leader>B :bN<CR>
-nnoremap <Leader>v <C-^> " C-^ is a contender for Most Uncomfortable Key Sequence
+nnoremap <Leader>b :bn<CR>   " next buffer
+nnoremap <Leader>B :bN<CR>   " prev buffer
+nnoremap <Leader>v <C-^>     " Last buffer. C-^ is a contender for Most Uncomfortable Key Sequence Ever
 
 "quicker command mode:
 nnoremap <Space> :
@@ -111,6 +131,9 @@ nnoremap <Leader>O maO<Esc>`a
 " Visual line select to matching bracket, delete it
 nnoremap <Leader>d V%d
 
+" Brace completion
+inoremap {<CR> {<CR>}<Esc>ko
+
 " TABS {{{1
 """""""""""
 
@@ -131,15 +154,18 @@ set splitright
 " NAVIGATION {{{1
 """""""""""""""""
 
+" Move lines up and down a la Atom.
+noremap <M-k> :m-2<CR>==
+noremap <M-j> :m+1<CR>==
+
 "" windows {{{2
 """""""""""""""
 
 "" skip the c-w
-"" FIXME why does this not work h to l?
-nnoremap <C-j> <C-W><C-J>
-nnoremap <C-k> <C-W><C-K>
-nnoremap <C-l> <C-W><C-L>
-nnoremap <C-h> <C-W><C-H>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
 
 "" neovim terminal keybinding {{{2
 """"""""""""""""""""""""""""""""""
@@ -150,23 +176,6 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
-
-"" tabs {{{2
-"""""""""""
-" Delete this? I don't really use tabs
-nnoremap tc :tabnew<Space>
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
-nnoremap th :tabfirst<CR>
-nnoremap tl :tablast<CR>
-
-"" netrw {{{2
-"""""""""""""
-let g:netrw_banner       = 0 " remove banner
-let g:netrw_liststyle    = 3 " tree view
-let g:netrw_browse_split = 4 " open in prev window
-let g:netrw_altv         = 1
-let g:netrw_winsize      = 25
 
 " PLUGINS {{{1
 """"""""""""""
@@ -185,6 +194,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'                                          " git
 Plug 'airblade/vim-gitgutter'                                      " git
+Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
+Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
+"Plug 'easymotion/vim-easymotion'                                   " easy `avy word` style jumping
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }         " elixir
 call plug#end()
 
 "" airline {{{2
