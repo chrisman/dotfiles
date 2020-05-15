@@ -90,19 +90,8 @@ bindkey -v
 alias vim=nvim
 alias vimdiff="nvim -d"
 
-# nvm!
-export NVM_DIR="/Users/chris.brown/.nvm" # home env
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # suffix aliases!
 alias -s js=vim
-
-# love
-alias love="/Applications/love.app/Contents/MacOS/love"
-# tintin++
-alias tt="tt++ ~/.tintin/main.tin"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # open git repo
 # is a function because i couldn't ever escape all the quotes correctly
@@ -116,13 +105,3 @@ function ts {
   args = $@
   tmux send-keys -t right "$args" C-m
 }
-
-# fastlane
-export PATH="$HOME/.fastlane/bin:$PATH"
-# haskell
-export PATH="$HOME/Library/Haskell/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
-# for gpg signing
-GPG_TTY=$(tty)
-export GPG_TTY
