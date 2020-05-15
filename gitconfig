@@ -1,13 +1,10 @@
 [user]
   name = Christopher P. Brown
   email = christopher.p.brown@gmail.com
-  signingkey = 058F57D2
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
   pager = "diff-so-fancy | less" ; `npm install -g diff-so-fancy`
-[web]
-  browser = google-chrome
 [diff]
   tool = nvim
 [difftool "nvim"]
@@ -18,5 +15,3 @@
   tool = vimdiff
 [alias]
   praise = blame
-[commit]
-  gpgsign = true
