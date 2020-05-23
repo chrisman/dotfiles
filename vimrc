@@ -43,6 +43,9 @@ set listchars=tab:▸\ ,eol:¬
 " highlight current line plz
 set cursorline
 
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+autocmd FileType markdown Goyo
+
 " FOLDS {{{1
 """"""""""""
 
@@ -75,10 +78,6 @@ set smartcase
 
 " global replace by default
 set gdefault
-
-" easymotion by default
-map <Leader> <Plug>(easymotion-prefix)
-let g:EasyMotion_smartcase = 1
 
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
@@ -179,30 +178,98 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 " PLUGINS {{{1
 """"""""""""""
-"" plug {{{2
+"" PLUGS {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'freeo/vim-kalisi'
-Plug 'vim-airline/vim-airline'                                     " looks and feels
-Plug 'vim-airline/vim-airline-themes'                              " looks and feels
-Plug 'gorodinskiy/vim-coloresque'                                  " CSS colors!
-Plug 'tpope/vim-surround'                                          " surround
-Plug 'godlygeek/tabular'                                           " columns
-Plug 'mattn/emmet-vim', { 'for': 'html' }                          " html expander
-Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }             " pug syntax
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive'                                          " git
-Plug 'airblade/vim-gitgutter'                                      " git
-Plug 'posva/vim-vue', { 'for': 'vue'}                              " vuuuuuuuue
-Plug 'editorconfig/editorconfig-vim'                               " http://editorconfig.org
-"Plug 'easymotion/vim-easymotion'                                   " easy `avy word` style jumping
-Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }         " elixir
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " conquerer of completion
+Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
+Plug 'vim-airline/vim-airline'                                    " looks and feels
+Plug 'vim-airline/vim-airline-themes'                             " looks and feels
+Plug 'gorodinskiy/vim-coloresque'                                 " CSS colors!
+Plug 'tpope/vim-surround'                                         " surround
+Plug 'godlygeek/tabular'                                          " columns
+Plug 'mattn/emmet-vim', { 'for': 'html' }                         " html expander
+Plug 'scrooloose/nerdtree'                                        " file browser
+Plug 'Xuyuanp/nerdtree-git-plugin'                                " file browser (w. git)
+Plug 'tpope/vim-fugitive'                                         " git
+Plug 'airblade/vim-gitgutter'                                     " git
+Plug 'posva/vim-vue', { 'for': 'vue'}                             " vuuuuuuuue
+Plug 'editorconfig/editorconfig-vim'                              " http://editorconfig.org
+Plug 'easymotion/vim-easymotion'                                  " easy `avy word` style jumping
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }             " elixir
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }               " fuzzy find
+Plug 'junegunn/fzf.vim'                                           " fuzzy find
+Plug 'junegunn/goyo.vim'                                          " distraction free markdown
+Plug 'reedes/vim-pencil'                                          " distraction free markdown
+Plug 'junegunn/limelight.vim'                                     " distraction free markdown
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " actual vim in the browser
 call plug#end()
 
-"" airline {{{2
-"""""""""""""""
-let g:airline#extensions#tabline#enabled = 1 " show buffers
+"" firenvim {{{2
+""""""""""""""""
+if exists('g:started_by_firenvim')
+  let g:airline#extensions#tabline#enabled = 0
+  set laststatus=0
+else
+  let g:airline#extensions#tabline#enabled = 1 " show tabline
+  set laststatus=1
+endif
+"" easymotion {{{2
+""""""""""""""""""
+let g:EasyMotion_smartcase = 1
+"" fzf {{{2
+"""""""""""
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'  " respect the gitignore file
+"" goyo family {{{2
+"""""""""""""""""""
+"" why is the goyo family so hard to get right??
+nnoremap <leader>m :Goyo<cr>
+let g:pencil#wrapModeDefault = 'soft'
+let g:limelight_default_coefficient = 0.7
+function! s:goyo_enter()
+  " quit on :q
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+  " hide tmux
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  " other plugins
+  Limelight
+  TogglePencil
+  SoftPencil
+  silent CocDisable
+endfunction
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+  " bring back tmux
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status on
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+  " turn off plugins
+  Limelight!
+  NoPencil
+  CocEnable
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " COLORS {{{1
 """""""""""""
 set background=dark
