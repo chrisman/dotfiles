@@ -43,8 +43,9 @@ set listchars=tab:▸\ ,eol:¬
 " highlight current line plz
 set cursorline
 
+" filetypes
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd FileType markdown Goyo
+autocmd BufNewFile,BufRead *.fnl set filetype=fennel
 
 " FOLDS {{{1
 """"""""""""
@@ -203,6 +204,8 @@ Plug 'junegunn/goyo.vim'                                          " distraction 
 Plug 'reedes/vim-pencil'                                          " distraction free markdown
 Plug 'junegunn/limelight.vim'                                     " distraction free markdown
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " actual vim in the browser
+Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }                   " hello fennel
+Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lispy lisps
 call plug#end()
 
 "" firenvim {{{2
@@ -219,11 +222,13 @@ endif
 let g:EasyMotion_smartcase = 1
 "" fzf {{{2
 """""""""""
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'  " respect the gitignore file
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'  " respec teh gitignore
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } } " popout!
 "" goyo family {{{2
 """""""""""""""""""
 "" why is the goyo family so hard to get right??
 nnoremap <leader>m :Goyo<cr>
+autocmd FileType markdown Goyo
 let g:pencil#wrapModeDefault = 'soft'
 let g:limelight_default_coefficient = 0.7
 function! s:goyo_enter()
