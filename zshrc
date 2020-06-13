@@ -100,6 +100,7 @@ alias vimdiff="nvim -d"
 
 # suffix aliases!
 alias -s js=vim
+alias -s git="git clone" # 😎
 
 # open git repo
 # is a function because i couldn't ever escape all the quotes correctly
