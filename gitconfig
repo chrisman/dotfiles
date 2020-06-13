@@ -1,3 +1,5 @@
+[init]
+  templatedir = ~/templates/black-lives-matter.git
 [user]
   name = Christopher P. Brown
   email = christopher.p.brown@gmail.com
