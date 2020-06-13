@@ -2,4 +2,8 @@
 
 These are a couple dotfiles.
 
-When I was remoting into a Windows machine, I had separate `osx` and `windows` branches, but I've since then merged `osx` back into `master` and am using that exclusively.
+## branches
+
+1. main: The main branch is the dotfiles I've cultivated on macos. 
+
+2. pinebook: linux specific tweaks I've made to dotfiles for the pinebook
