@@ -86,6 +86,10 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias fnl=fennel
+alias moon='curl --fail -s "https://wttr.in/moon"'
+alias weather='curl --fail -s "https://wttr.in/?format=v2"'
+alias please=sudo
+alias bkgm='rlwrap telnet fibs.com 4321'
 
 # vim keys in zsh
 bindkey -v

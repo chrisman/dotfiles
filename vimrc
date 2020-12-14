@@ -80,6 +80,11 @@ set smartcase
 " global replace by default
 set gdefault
 
+" Fuzzy stuff
+nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-g> :Ag<Cr>
+nnoremap <silent><leader>f :Buffers<Cr>
+
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
@@ -206,10 +211,17 @@ au FileType fennel call PareditInitBuffer()
 "" vimwiki {{{2
 """""""""""""""
 let g:vimwiki_global_ext = 0
-let g:vimwiki_list = [{'path': '~/knowledge/',
-                      \ 'syntax': 'markdown',
-                      \ 'ext': '.md',
-                      \ 'index': 'Home'},{}]
+let g:vimwiki_listsyms = '✗○◐●✓'
+
+let wiki1 = {}
+let wiki1.name = 'knowledge'
+let wiki1.path = '~/knowledge'
+let wiki1.auto_toc = 1
+let wiki1.syntax = 'markdown'
+let wiki1.ext = '.md'
+let wiki1.index = 'Home'
+
+let g:vimwiki_list = [ wiki1 ]
 "" firenvim {{{2
 """"""""""""""""
 if exists('g:started_by_firenvim')
