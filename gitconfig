@@ -1,5 +1,4 @@
 [init]
-  templatedir = ~/templates/black-lives-matter.git
 [user]
   name = Christopher P. Brown
   email = christopher.p.brown@gmail.com
@@ -15,5 +14,10 @@
   prompt = false
 [merge]
   tool = vimdiff
+[pull]
+  rebase = true
 [alias]
   praise = blame
+  set-upstream = \
+    !git branch \
+      --set-upstream-to=origin/`git symbolic-ref --short HEAD`

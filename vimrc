@@ -201,8 +201,7 @@ Plug 'junegunn/limelight.vim'                                     " distraction 
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " actual vim in the browser
 Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }                   " hello fennel
 Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lispy lisps
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'                                            " vimwiki
 call plug#end()
 
 "" paredit {{{2
