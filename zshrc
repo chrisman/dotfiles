@@ -86,15 +86,12 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias fnl=fennel
-<<<<<<< HEAD
 alias moon='curl --fail -s "https://wttr.in/moon"'
 alias weather='curl --fail -s "https://wttr.in/?format=v2"'
 alias please=sudo
 alias bkgm='rlwrap telnet fibs.com 4321'
-=======
 alias docker=podman
 alias docker-compose=podman-compose
->>>>>>> f25cad409e770bb3a02e386aabdba3e82cec2b50
 
 # vim keys in zsh
 bindkey -v
@@ -124,7 +121,6 @@ function ts {
   tmux send-keys -t right "$args" C-m
 }
 
-<<<<<<< HEAD
 # python
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -133,9 +129,8 @@ alias py=python
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-=======
+
 # markdown
 function rmd {
   pandoc $@ | lynx -stdin
 }
->>>>>>> f25cad409e770bb3a02e386aabdba3e82cec2b50
