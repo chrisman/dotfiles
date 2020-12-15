@@ -53,7 +53,7 @@ plugins=(git tmux)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/Library/Python/3.8/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,6 +86,8 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias fnl=fennel
+alias docker=podman
+alias docker-compose=podman-compose
 
 # vim keys in zsh
 bindkey -v
@@ -113,4 +115,9 @@ gx () {
 function ts {
   args = $@
   tmux send-keys -t right "$args" C-m
+}
+
+# markdown
+function rmd {
+  pandoc $@ | lynx -stdin
 }
