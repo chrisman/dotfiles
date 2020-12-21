@@ -86,8 +86,10 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias fnl=fennel
-alias docker=podman
-alias docker-compose=podman-compose
+
+# rip docker
+#alias docker="podman"
+#alias docker-compose="podman-compose"
 
 # vim keys in zsh
 bindkey -v
@@ -121,3 +123,20 @@ function ts {
 function rmd {
   pandoc $@ | lynx -stdin
 }
+
+
+# Signatry Aliases
+## Docker
+alias death2docker='echo "DEATH TO DOCKER" && docker stop $(docker ps -q -a) && echo "DOCKER HAS BEEN STOPPED"  && docker system prune --volumes && echo "DOCKER IS DEAD, AND THE VILLAGE REJOICES" ' 
+# The Signatry Commands
+alias ts-api="cd ${HOME}/workspace/signatry/graphql-api && dotenv -e ../.env -- npx ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts"
+alias ts-client="cd ${HOME}/workspace/signatry/react-client && dotenv -e ../.env -- npm run dev"
+alias ts-restore="cd ${HOME}/workspace/signatry && dotenv ./database/scripts/restore.sh && cd ../.."
+alias ts-reset="cd ${HOME}/workspace/signatry && dotenv ./database/scripts/reset.sh && cd ../.."
+alias ts-startup="cd ${HOME}/workspace/signatry && dotenv ./database/scripts/reset.sh && dotenv ./database/scripts/restore.sh && cd ./graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
+alias ts-build="cd ${HOME}/workspace/signatry/graphql-api && npm run build:watch"
+alias ts-migrate="cd ${HOME}/workspace/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
+alias ts-revert="cd ${HOME}/workspace/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:revert && cd ../../.."
+alias ts-stripe="cd ${HOME}/workspace/signatry/graphql-api && stripe listen --forward-to localhost:8080/api/stripe"
+alias ts-db="docker ps -a && docker stop signatry_devcontainer_vscode_1"
+alias ts-clean="cd ${HOME}/workspace/signatry/graphql-api/dist/ && rm -rfv ./* && cd"
