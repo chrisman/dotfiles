@@ -80,11 +80,17 @@ set smartcase
 " global replace by default
 set gdefault
 
+" Fuzzy stuff
+nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-g> :Ag<Cr>
+nnoremap <silent><leader>f :Buffers<Cr>
+
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
 
 " change leader to comma
 let mapleader=","
+let maplocalleader=";"
 
 " toggle spell check
 nnoremap <Leader>s :setlocal spell! spelllang=en_us<CR>
@@ -122,17 +128,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " Explorer
 nnoremap <Leader>n :NERDTreeToggle<CR>
-
-" insert blank lines above or below
-nnoremap <Leader>o mao<Esc>`a
-nnoremap <Leader>O maO<Esc>`a
-
-" I find myself repeating this a lot when editing JSON
-" Visual line select to matching bracket, delete it
-nnoremap <Leader>d V%d
-
-" Brace completion
-inoremap {<CR> {<CR>}<Esc>ko
 
 " TABS {{{1
 """""""""""
@@ -186,7 +181,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " conquerer of
 Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
 Plug 'vim-airline/vim-airline'                                    " looks and feels
 Plug 'vim-airline/vim-airline-themes'                             " looks and feels
-Plug 'gorodinskiy/vim-coloresque'                                 " CSS colors!
+Plug 'gko/vim-coloresque'                                         " CSS colors!
 Plug 'tpope/vim-surround'                                         " surround
 Plug 'godlygeek/tabular'                                          " columns
 Plug 'mattn/emmet-vim', { 'for': 'html' }                         " html expander
@@ -209,6 +204,23 @@ Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lis
 Plug 'vimwiki/vimwiki'                                            " vimwiki
 call plug#end()
 
+"" paredit {{{2
+"""""""""""""""
+au FileType fennel call PareditInitBuffer()
+"" vimwiki {{{2
+"""""""""""""""
+let g:vimwiki_global_ext = 0
+let g:vimwiki_listsyms = '✗○◐●✓'
+
+let wiki1 = {}
+let wiki1.name = 'knowledge'
+let wiki1.path = '~/knowledge'
+let wiki1.auto_toc = 1
+let wiki1.syntax = 'markdown'
+let wiki1.ext = '.md'
+let wiki1.index = 'Home'
+
+let g:vimwiki_list = [ wiki1 ]
 "" firenvim {{{2
 """"""""""""""""
 if exists('g:started_by_firenvim')

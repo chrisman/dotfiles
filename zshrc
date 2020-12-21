@@ -53,7 +53,7 @@ plugins=(git tmux)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/Library/Python/3.8/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/Library/Python/3.8/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,10 +86,15 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias fnl=fennel
-
-# rip docker
-#alias docker="podman"
-#alias docker-compose="podman-compose"
+alias moon='curl --fail -s "https://wttr.in/moon"'
+alias wttr='curl --fail -s "https://wttr.in"'
+alias please=sudo
+alias bkgm='rlwrap telnet fibs.com 4321'
+alias sus='rlwrap nc sus.tildeverse.org 1234'
+#alias docker=podman
+#alias docker-compose=podman-compose
+alias date=gdate # brew install gdate
+alias tt=tt++
 
 # vim keys in zsh
 bindkey -v
@@ -118,6 +123,15 @@ function ts {
   args = $@
   tmux send-keys -t right "$args" C-m
 }
+
+# python
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+alias py=python
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # markdown
 function rmd {
