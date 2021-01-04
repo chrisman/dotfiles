@@ -212,15 +212,6 @@ au FileType fennel call PareditInitBuffer()
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = '✗○◐●✓'
 
-let wiki1 = {}
-let wiki1.name = 'knowledge'
-let wiki1.path = '~/knowledge'
-let wiki1.auto_toc = 1
-let wiki1.syntax = 'markdown'
-let wiki1.ext = '.md'
-let wiki1.index = 'Home'
-
-let g:vimwiki_list = [ wiki1 ]
 "" firenvim {{{2
 """"""""""""""""
 if exists('g:started_by_firenvim')
