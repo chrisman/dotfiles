@@ -1,3 +1,3 @@
 #!/bin/sh
-brew cask install rectangle keepassxc firefox kap
-brew install nvm tmux neovim mosh
+brew install rectangle docker keepassxc firefox caffeine slack postico kap --cask
+brew install nvm tmux mosh lynx neovim pandoc
