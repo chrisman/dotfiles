@@ -109,6 +109,9 @@ nnoremap <Leader>b :bn<CR>   " next buffer
 nnoremap <Leader>B :bN<CR>   " prev buffer
 nnoremap <Leader>v <C-^>     " Last buffer. C-^ is a contender for Most Uncomfortable Key Sequence Ever
 
+" maximizer
+nnoremap <Leader>z :MaximizerToggle<CR>
+
 "quicker command mode:
 nnoremap <Space> :
 
@@ -136,6 +139,27 @@ set tabstop=2     " tabs are two spaces long. the default is 8?? what is wrong w
 set softtabstop=2 " typing <TAB> inserts two spaces
 set shiftwidth=2  " autoindent spaces, i.e. `<<` and `>>`
 set expandtab     " use the right no. of spaces in Insert mode
+
+" SNIPPETS {{{1
+"""""""""""""""
+
+" Use <C-y> for trigger snippet expand.
+imap <C-y> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>y for convert visual selected code to snippet
+xmap <leader>y  <Plug>(coc-convert-snippet)
 
 " SPLITS {{{1
 """""""""""""
@@ -179,6 +203,8 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " conquerer of completion
 Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
+Plug 'szw/vim-maximizer'                                          " maximizer
+Plug 'honza/vim-snippets'                                         " snippets
 Plug 'vim-airline/vim-airline'                                    " looks and feels
 Plug 'vim-airline/vim-airline-themes'                             " looks and feels
 Plug 'gko/vim-coloresque'                                         " CSS colors!

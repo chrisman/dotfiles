@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 # aliases
 alias love="/Applications/love.app/Contents/MacOS/love"
+alias tic80="/Applications/tic80.app/Contents/MacOS/tic80"
 alias fnl=fennel
 alias moon='curl --fail -s "https://wttr.in/moon"'
 alias wttr='curl --fail -s "https://wttr.in"'
