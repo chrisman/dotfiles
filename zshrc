@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias fnl=fennel
 alias moon='curl --fail -s "https://wttr.in/moon"'
-alias wttr='curl --fail -s "https://wttr.in"'
+alias wttr='curl --fail -s "https://wttr.in?F"'
 alias please=sudo
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias sus='rlwrap nc sus.tildeverse.org 1234'
@@ -143,14 +143,24 @@ function rmd {
 ## Docker
 alias death2docker='echo "DEATH TO DOCKER" && docker stop $(docker ps -q -a) && echo "DOCKER HAS BEEN STOPPED"  && docker system prune --volumes && echo "DOCKER IS DEAD, AND THE VILLAGE REJOICES" ' 
 # The Signatry Commands
-alias ts-api="cd ${HOME}/workspace/signatry/graphql-api && dotenv -e ../.env -- npx ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts"
-alias ts-client="cd ${HOME}/workspace/signatry/react-client && dotenv -e ../.env -- npm run dev"
-alias ts-restore="cd ${HOME}/workspace/signatry && dotenv ./database/scripts/restore.sh && cd ../.."
-alias ts-reset="cd ${HOME}/workspace/signatry && dotenv ./database/scripts/reset.sh && cd ../.."
-alias ts-startup="cd ${HOME}/workspace/signatry && dotenv ./database/scripts/reset.sh && dotenv ./database/scripts/restore.sh && cd ./graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
-alias ts-build="cd ${HOME}/workspace/signatry/graphql-api && npm run build:watch"
-alias ts-migrate="cd ${HOME}/workspace/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
-alias ts-revert="cd ${HOME}/workspace/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:revert && cd ../../.."
-alias ts-stripe="cd ${HOME}/workspace/signatry/graphql-api && stripe listen --forward-to localhost:8080/api/stripe"
+alias ts-api="cd ${HOME}/signatry/graphql-api && dotenv -e ../.env -- npx ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts"
+alias ts-client="cd ${HOME}/signatry/react-client && dotenv -e ../.env -- npm run dev"
+alias ts-restore="cd ${HOME}/signatry && dotenv ./database/scripts/restore.sh && cd ../.."
+alias ts-reset="cd ${HOME}/signatry && dotenv ./database/scripts/reset.sh && cd ../.."
+alias ts-startup="cd ${HOME}/signatry && dotenv ./database/scripts/reset.sh && dotenv ./database/scripts/restore.sh && cd ./graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
+alias ts-build="cd ${HOME}/signatry/graphql-api && npm run build:watch"
+alias ts-migrate="cd ${HOME}/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
+alias ts-revert="cd ${HOME}/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:revert && cd ../../.."
+alias ts-stripe="cd ${HOME}/signatry/graphql-api && stripe listen --forward-to localhost:8080/api/stripe"
 alias ts-db="docker ps -a && docker stop signatry_devcontainer_vscode_1"
-alias ts-clean="cd ${HOME}/workspace/signatry/graphql-api/dist/ && rm -rfv ./* && cd"
+alias ts-clean="cd ${HOME}/signatry/graphql-api/dist/ && rm -rfv ./* && cd"
+
+
+## Android stuff
+export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
+export ANDROID_AVD_HOME=~/.android/avd
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+
+
+alias y=yes

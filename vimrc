@@ -202,6 +202,7 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " actual vim i
 Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }                   " hello fennel
 Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lispy lisps
 Plug 'vimwiki/vimwiki'                                            " vimwiki
+Plug 'HerringtonDarkholme/yats.vim'                               " typescript syntax
 call plug#end()
 
 "" paredit {{{2
