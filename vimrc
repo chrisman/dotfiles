@@ -80,6 +80,10 @@ set smartcase
 " global replace by default
 set gdefault
 
+" silver searcher please
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
 " Fuzzy stuff
 nnoremap <C-p> :GFiles<Cr>
 nnoremap <C-g> :Ag<Cr>
@@ -205,6 +209,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " conquerer of
 Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
 Plug 'szw/vim-maximizer'                                          " maximizer
 Plug 'honza/vim-snippets'                                         " snippets
+Plug 'epilande/vim-react-snippets'                                " snippets
 Plug 'vim-airline/vim-airline'                                    " looks and feels
 Plug 'vim-airline/vim-airline-themes'                             " looks and feels
 Plug 'gko/vim-coloresque'                                         " CSS colors!
