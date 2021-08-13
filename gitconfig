@@ -6,12 +6,12 @@
   editor = nvim
   excludesfile = ~/.gitignore
   pager = "diff-so-fancy | less" ; `npm install -g diff-so-fancy`
-[diff]
-  tool = nvim
-[difftool "nvim"]
-  cmd = "nvim -d $LOCAL $REMOTE"
 [difftool]
-  prompt = false
+    prompt = true
+[diff]
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
   tool = vimdiff
 [pull]

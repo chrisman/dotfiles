@@ -165,3 +165,4 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Hom
 
 
 alias y=yes
+alias ny=netlify
