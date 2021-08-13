@@ -92,10 +92,12 @@ alias wttr='curl --fail -s "https://wttr.in"'
 alias please=sudo
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias sus='rlwrap nc sus.tildeverse.org 1234'
-alias docker=podman
-alias docker-compose=podman-compose
+#alias docker=podman
+#alias docker-compose=podman-compose
 alias date=gdate # brew install gdate
 alias tt=tt++
+alias v=nvim
+alias retro='rlwrap retro'
 
 # vim keys in zsh
 bindkey -v

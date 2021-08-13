@@ -149,19 +149,10 @@ set expandtab     " use the right no. of spaces in Insert mode
 
 " Use <C-y> for trigger snippet expand.
 imap <C-y> <Plug>(coc-snippets-expand)
-
 " Use <C-j> for select text for visual placeholder of snippet.
 vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
 " Use <leader>y for convert visual selected code to snippet
 xmap <leader>y  <Plug>(coc-convert-snippet)
 
@@ -233,6 +224,11 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " actual vim i
 Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }                   " hello fennel
 Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lispy lisps
 Plug 'vimwiki/vimwiki'                                            " vimwiki
+Plug 'zaid/vim-rec'                                               " recutils lol
+Plug 'NoahTheDuke/vim-just'
+Plug 'andys8/vim-elm-syntax'
+
+
 call plug#end()
 
 "" paredit {{{2
