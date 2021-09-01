@@ -140,3 +140,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 function rmd {
   pandoc $@ | lynx -stdin
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
