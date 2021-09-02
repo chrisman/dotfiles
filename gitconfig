@@ -21,3 +21,5 @@
   set-upstream = \
     !git branch \
       --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[help]
+	autocorrect = 7
