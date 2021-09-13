@@ -96,6 +96,9 @@ alias sus='rlwrap nc sus.tildeverse.org 1234'
 #alias docker-compose=podman-compose
 alias date=gdate # brew install gdate
 alias tt=tt++
+alias cat=bat
+alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf | xargs npm run"
+alias sw='git branch -a | fzf | xargs git switch'
 
 # vim keys in zsh
 bindkey -v
@@ -166,3 +169,5 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Hom
 
 alias y=yes
 alias ny=netlify
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
