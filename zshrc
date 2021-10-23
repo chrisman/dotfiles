@@ -146,18 +146,6 @@ function rmd {
 # Signatry Aliases
 ## Docker
 alias death2docker='echo "DEATH TO DOCKER" && docker stop $(docker ps -q -a) && echo "DOCKER HAS BEEN STOPPED"  && docker system prune --volumes && echo "DOCKER IS DEAD, AND THE VILLAGE REJOICES" ' 
-# The Signatry Commands
-alias ts-api="cd ${HOME}/signatry/graphql-api && dotenv -e ../.env -- npx ts-node-dev --transpile-only --ignore-watch node_modules src/index.ts"
-alias ts-client="cd ${HOME}/signatry/react-client && dotenv -e ../.env -- npm run dev"
-alias ts-restore="cd ${HOME}/signatry && dotenv ./database/scripts/restore.sh && cd ../.."
-alias ts-reset="cd ${HOME}/signatry && dotenv ./database/scripts/reset.sh && cd ../.."
-alias ts-startup="cd ${HOME}/signatry && dotenv ./database/scripts/reset.sh && dotenv ./database/scripts/restore.sh && cd ./graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
-alias ts-build="cd ${HOME}/signatry/graphql-api && npm run build:watch"
-alias ts-migrate="cd ${HOME}/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:run && cd ../../.."
-alias ts-revert="cd ${HOME}/signatry/graphql-api && dotenv -e ../.env npx typeorm migration:revert && cd ../../.."
-alias ts-stripe="cd ${HOME}/signatry/graphql-api && stripe listen --forward-to localhost:8080/api/stripe"
-alias ts-db="docker ps -a && docker stop signatry_devcontainer_vscode_1"
-alias ts-clean="cd ${HOME}/signatry/graphql-api/dist/ && rm -rfv ./* && cd"
 
 
 ## Android stuff

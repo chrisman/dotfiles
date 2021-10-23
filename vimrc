@@ -235,6 +235,7 @@ Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lis
 Plug 'elm-tooling/elm-vim'                                        " elm
 Plug 'vimwiki/vimwiki'                                            " vimwiki
 Plug 'HerringtonDarkholme/yats.vim'                               " typescript syntax
+Plug 'evanleck/vim-svelte'
 call plug#end()
 
 "" paredit {{{2
