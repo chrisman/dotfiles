@@ -136,6 +136,9 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " Explorer
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
+" Timestamp
+inoremap ,f =strftime('%F')<CR>
+
 " TABS {{{1
 """""""""""
 
@@ -238,6 +241,7 @@ au FileType fennel call PareditInitBuffer()
 """""""""""""""
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = '✗○◐●✓'
+let g:vimwiki_folding = 'list'
 
 let wiki1 = {}
 let wiki1.name = 'knowledge'
@@ -247,7 +251,12 @@ let wiki1.syntax = 'markdown'
 let wiki1.ext = '.md'
 let wiki1.index = 'Home'
 
-let g:vimwiki_list = [ wiki1 ]
+let wiki2 = {}
+let wiki2.name = 'endava'
+let wiki2.path = '~/vimwiki'
+let wiki2.auto_toc = 1
+
+let g:vimwiki_list = [ wiki1, wiki2 ]
 "" firenvim {{{2
 """"""""""""""""
 if exists('g:started_by_firenvim')
