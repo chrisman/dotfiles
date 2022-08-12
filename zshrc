@@ -99,6 +99,7 @@ alias date=gdate # brew install gdate
 alias tt=tt++
 alias v=nvim
 alias retro='rlwrap retro'
+alias j=just
 
 # vim keys in zsh
 bindkey -v
