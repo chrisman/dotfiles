@@ -15,6 +15,9 @@
   prompt = false
 [merge]
   tool = vimdiff
+  conflictstyle = diff3
+[mergetool]
+  prompt = false
 [pull]
   rebase = true
 [alias]

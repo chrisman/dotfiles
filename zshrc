@@ -95,6 +95,7 @@ alias sus='rlwrap nc sus.tildeverse.org 1234'
 alias docker=podman
 alias pod=podman
 #alias docker-compose=podman-compose
+alias wordle='ssh clidle.ddns.net -p 3000'
 alias date=gdate # brew install gdate
 alias tt=tt++
 alias v=nvim
@@ -104,6 +105,10 @@ alias cat=bat
 alias fl='rlwrap fennel'
 alias fennel='rlwrap fennel'
 alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf | xargs npm run"
+alias j=just
+alias jj="just --choose"
+alias nb=newsboat
+alias ed='rlwrap ed'
 
 # vim keys in zsh
 bindkey -v
@@ -148,6 +153,12 @@ function rmd {
   pandoc $@ | lynx -stdin
 }
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--layout=reverse --multi --border --preview='bat --color=always {}'"
+export FZF_DEFAULT_COMMAND='fd -t f -E Library -E workspace -E go'
+export FZF_ALT_C_COMMAND='fd -t d -H -L -E Library -E workspace -E go -E .git'
+export FZF_ALT_C_OPTS="--layout=reverse --border --preview='ls -G {}'"
 
 
+export EDITOR=nvim

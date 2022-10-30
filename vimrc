@@ -86,6 +86,7 @@ set grepformat=%f:%l:%c:%m
 
 " Fuzzy stuff
 nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-f> :Files<Cr>
 nnoremap <C-g> :Ag<Cr>
 nnoremap <silent><leader>f :Buffers<Cr>
 
@@ -147,18 +148,6 @@ set softtabstop=2 " typing <TAB> inserts two spaces
 set shiftwidth=2  " autoindent spaces, i.e. `<<` and `>>`
 set expandtab     " use the right no. of spaces in Insert mode
 
-" SNIPPETS {{{1
-"""""""""""""""
-
-" Use <C-y> for trigger snippet expand.
-imap <C-y> <Plug>(coc-snippets-expand)
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-" Use <leader>y for convert visual selected code to snippet
-xmap <leader>y  <Plug>(coc-convert-snippet)
-
 " SPLITS {{{1
 """""""""""""
 
@@ -199,7 +188,6 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 "" PLUGS {{{2
 """"""""""""
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " conquerer of completion
 Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
 Plug 'szw/vim-maximizer'                                          " maximizer
 Plug 'honza/vim-snippets'                                         " snippets
@@ -228,9 +216,11 @@ Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }                   " hello fennel
 Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lispy lisps
 Plug 'vimwiki/vimwiki'                                            " vimwiki
 Plug 'zaid/vim-rec'                                               " recutils lol
-Plug 'NoahTheDuke/vim-just'
-Plug 'andys8/vim-elm-syntax'
-
+Plug 'NoahTheDuke/vim-just'                                       " just!
+Plug 'andys8/vim-elm-syntax'                                      " elm
+Plug 'evanleck/vim-svelte'                                        " svelte
+Plug 'fatih/vim-go'                                               " go
+Plug 'preservim/vim-markdown'                                     " I want TOC in markdown
 
 call plug#end()
 
@@ -250,10 +240,12 @@ let wiki1.auto_toc = 1
 let wiki1.syntax = 'markdown'
 let wiki1.ext = '.md'
 let wiki1.index = 'Home'
+let wiki1.custom_wiki2html = 'mdwiki2html'
 
 let wiki2 = {}
-let wiki2.name = 'endava'
-let wiki2.path = '~/vimwiki'
+let wiki2.name = 'strixhaven'
+let wiki2.path = '~/Documents/strixhaven'
+let wiki2.path_html = '~/Documents/dozens-and-dragons/out/campaign/'
 let wiki2.auto_toc = 1
 
 let g:vimwiki_list = [ wiki1, wiki2 ]
@@ -296,9 +288,7 @@ function! s:goyo_enter()
   set scrolloff=999
   " other plugins
   Limelight
-  TogglePencil
   SoftPencil
-  silent CocDisable
 endfunction
 function! s:goyo_leave()
   " Quit Vim if this is the only remaining buffer
@@ -320,7 +310,6 @@ function! s:goyo_leave()
   " turn off plugins
   Limelight!
   NoPencil
-  CocEnable
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
