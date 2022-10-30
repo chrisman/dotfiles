@@ -100,6 +100,10 @@ alias tt=tt++
 alias v=nvim
 alias retro='rlwrap retro'
 alias j=just
+alias cat=bat
+alias fl='rlwrap fennel'
+alias fennel='rlwrap fennel'
+alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf | xargs npm run"
 
 # vim keys in zsh
 bindkey -v
@@ -145,3 +149,5 @@ function rmd {
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
