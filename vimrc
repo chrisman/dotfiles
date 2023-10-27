@@ -86,9 +86,9 @@ set grepformat=%f:%l:%c:%m
 
 " Fuzzy stuff
 nnoremap <C-p> :GFiles<Cr>
+nnoremap <M-p> :Buffers<Cr>
 nnoremap <C-f> :Files<Cr>
 nnoremap <C-g> :Ag<Cr>
-nnoremap <silent><leader>f :Buffers<Cr>
 
 " RANDOM LEADER SHORTCUTS {{{1
 """"""""""""""""""""""""""""""
@@ -140,6 +140,9 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 " Timestamp
 inoremap ,f =strftime('%F')<CR>
 
+" open files
+nmap gf :e <cfile><CR>
+
 " TABS {{{1
 """""""""""
 
@@ -190,8 +193,8 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 call plug#begin('~/.vim/plugged')
 Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
 Plug 'szw/vim-maximizer'                                          " maximizer
+Plug 'SirVer/ultisnips'                                           " snippets
 Plug 'honza/vim-snippets'                                         " snippets
-Plug 'epilande/vim-react-snippets'                                " snippets
 Plug 'vim-airline/vim-airline'                                    " looks and feels
 Plug 'vim-airline/vim-airline-themes'                             " looks and feels
 Plug 'gko/vim-coloresque'                                         " CSS colors!
@@ -220,10 +223,20 @@ Plug 'NoahTheDuke/vim-just'                                       " just!
 Plug 'andys8/vim-elm-syntax'                                      " elm
 Plug 'evanleck/vim-svelte'                                        " svelte
 Plug 'fatih/vim-go'                                               " go
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua' 
 Plug 'preservim/vim-markdown'                                     " I want TOC in markdown
 
 call plug#end()
 
+"" snippets {{{2
+""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-y>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 "" paredit {{{2
 """""""""""""""
 au FileType fennel call PareditInitBuffer()
@@ -232,6 +245,7 @@ au FileType fennel call PareditInitBuffer()
 let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = '✗○◐●✓'
 let g:vimwiki_folding = 'list'
+let g:vimwiki_table_mappings = 0
 
 let wiki1 = {}
 let wiki1.name = 'knowledge'
@@ -243,12 +257,21 @@ let wiki1.index = 'Home'
 let wiki1.custom_wiki2html = 'mdwiki2html'
 
 let wiki2 = {}
-let wiki2.name = 'strixhaven'
-let wiki2.path = '~/Documents/strixhaven'
-let wiki2.path_html = '~/Documents/dozens-and-dragons/out/campaign/'
+let wiki2.name = 'streak'
+let wiki2.path = '~/streak'
 let wiki2.auto_toc = 1
+let wiki2.syntax = 'markdown'
+let wiki2.ext = '.md'
+let wiki2.custom_wiki2html = 'mdwiki2html'
 
-let g:vimwiki_list = [ wiki1, wiki2 ]
+let wiki3 = {}
+let wiki3.name = 'spelljammer'
+let wiki3.path = '~/Documents/strixhaven'
+let wiki3.auto_toc = 1
+let wiki3.path_html = '~/Documents/dozens-and-dragons/out/campaign'
+
+let g:vimwiki_list = [ wiki1, wiki2, wiki3 ]
+
 "" firenvim {{{2
 """"""""""""""""
 if exists('g:started_by_firenvim')
@@ -272,6 +295,7 @@ nnoremap <leader>m :Goyo<cr>
 autocmd FileType markdown Goyo
 let g:pencil#wrapModeDefault = 'soft'
 let g:limelight_default_coefficient = 0.7
+let g:limelight_conceal_ctermfg = 1
 function! s:goyo_enter()
   " quit on :q
   let b:quitting = 0

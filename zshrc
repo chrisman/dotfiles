@@ -92,8 +92,8 @@ alias wttr='curl --fail -s "https://wttr.in"'
 alias please=sudo
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias sus='rlwrap nc sus.tildeverse.org 1234'
-alias docker=podman
-alias pod=podman
+#alias docker=podman
+#alias pod=podman
 #alias docker-compose=podman-compose
 alias wordle='ssh clidle.ddns.net -p 3000'
 alias date=gdate # brew install gdate
@@ -109,6 +109,7 @@ alias j=just
 alias jj="just --choose"
 alias nb=newsboat
 alias ed='rlwrap ed'
+alias sc=sc-im
 
 # vim keys in zsh
 bindkey -v
@@ -155,10 +156,29 @@ function rmd {
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--layout=reverse --multi --border --preview='bat --color=always {}'"
 export FZF_DEFAULT_COMMAND='fd -t f -E Library -E workspace -E go'
+export FZF_DEFAULT_OPTS="--layout=reverse --multi --border --height=100 --preview='bat --color=always --line-range :50 {}'"
 export FZF_ALT_C_COMMAND='fd -t d -H -L -E Library -E workspace -E go -E .git'
-export FZF_ALT_C_OPTS="--layout=reverse --border --preview='ls -G {}'"
+export FZF_ALT_C_OPTS="--layout=reverse --height=100 --border --preview='tree -C {} | head -50'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
 
 
 export EDITOR=nvim
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# starship
+eval "$(starship init zsh)"
+
+# binutils
+export PATH="/usr/local/opt/binutils/bin:$PATH"
+
+PATH="/Users/cb/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/cb/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/cb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/cb/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/cb/perl5"; export PERL_MM_OPT;

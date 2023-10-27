@@ -1,8 +1,8 @@
 [init]
   defaultBranch = main
 [user]
-  name = Christopher P. Brown
-  email = christopher.p.brown@gmail.com
+  name = dozens
+  email = dozens@tilde.team
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
@@ -25,3 +25,10 @@
   set-upstream = \
     !git branch \
       --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[sendemail]
+  smtpserver = smtp.tilde.team
+  smtpuser = dozens
+  smtpencryption = tls
+  smtpserverport = 587
+  annotate = yes
+  suppresscc = self
