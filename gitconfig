@@ -3,12 +3,22 @@
 [user]
   name = dozens
   email = dozens@tilde.team
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
+[tag]
+  sort = version:refname
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
   pager = "diff-so-fancy | less" ; `npm install -g diff-so-fancy`
 [diff]
   tool = nvim
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [difftool "nvim"]
   cmd = "nvim -d $LOCAL $REMOTE"
 [difftool]
@@ -18,13 +28,27 @@
   conflictstyle = diff3
 [mergetool]
   prompt = false
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
 [pull]
   rebase = true
+  ff = only
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
 [alias]
   praise = blame
-  set-upstream = \
-    !git branch \
-      --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
 [sendemail]
   smtpserver = smtp.tilde.team
   smtpuser = dozens

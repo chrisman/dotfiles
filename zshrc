@@ -53,8 +53,10 @@ plugins=(git tmux)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/Library/Python/3.8/bin:${HOME}/.luarocks/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/.local/bin:${HOME}/.luarocks/bin:/usr/local/opt/openssl/bin:/Users/cb/Library/Python/3.9/bin"
+export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,7 +71,7 @@ source $ZSH/oh-my-zsh.sh
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -84,44 +86,53 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # aliases
-alias love="/Applications/love.app/Contents/MacOS/love"
-alias tic80="/Applications/tic80.app/Contents/MacOS/tic80"
-alias fnl=fennel
-alias moon='curl --fail -s "https://wttr.in/moon"'
-alias wttr='curl --fail -s "https://wttr.in"'
-alias please=sudo
-alias bkgm='rlwrap telnet fibs.com 4321'
-alias sus='rlwrap nc sus.tildeverse.org 1234'
-#alias docker=podman
-#alias pod=podman
 #alias docker-compose=podman-compose
-alias wordle='ssh clidle.ddns.net -p 3000'
-alias date=gdate # brew install gdate
-alias tt=tt++
-alias v=nvim
-alias retro='rlwrap retro'
-alias j=just
+#alias docker=podman
+alias bkgm='rlwrap telnet fibs.com 4321'
 alias cat=bat
-alias fl='rlwrap fennel'
+alias date=gdate # brew install gdate
+alias ed='rlwrap ed'
 alias fennel='rlwrap fennel'
-alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf | xargs npm run"
+alias fl='rlwrap fennel'
+alias fnl='rlwrap fennel'
+alias ghostconfig="v ~/Library/Application\ Support/com.mitchellh.ghostty/config"
+alias glv="glo | tac | vim -R -c 'set filetype=git' -"
+alias ip="ifconfig | grep -o 'inet 192.168.0.\d\{3\}' | cut -d' ' -f2"
 alias j=just
 alias jj="just --choose"
+alias love="/Applications/love.app/Contents/MacOS/love"
+alias moon='curl --fail -s "https://wttr.in/moon"'
 alias nb=newsboat
-alias ed='rlwrap ed'
+alias please=sudo
+alias pod=podman
+alias py=python
+alias r=ranger
+alias retro='rlwrap retro'
 alias sc=sc-im
+alias sql=sqlite3
+alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf --preview="" | xargs npm run"
+alias sus='rlwrap nc sus.tildeverse.org 1234'
+alias t="todo"
+alias tab="jj ~/tables/justfile"
+alias tb="nc termbin.com 9999"
+alias tic80="/Applications/tic80.app/Contents/MacOS/tic80"
+alias tt=tt++
+alias v=nvim
+alias vim=nvim
+alias vimdiff="nvim -d"
+alias wordle='ssh clidle.ddns.net -p 3000'
+alias wttr='curl --fail -s "https://wttr.in"'
 
 # vim keys in zsh
 bindkey -v
+autoload edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# neovim!
-alias vim=nvim
-alias vimdiff="nvim -d"
 
 # suffix aliases!
 alias -s js=vim
@@ -140,29 +151,20 @@ function ts {
   tmux send-keys -t right "$args" C-m
 }
 
-# python
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-alias py=python
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # markdown
 function rmd {
-  pandoc $@ | lynx -stdin
+  pandoc $@ | w3m -T text/html
 }
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd -t f -E Library -E workspace -E go'
 export FZF_DEFAULT_OPTS="--layout=reverse --multi --border --height=100 --preview='bat --color=always --line-range :50 {}'"
+export FZF_CTRL_R_OPTS="--layout=reverse --border --preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_COMMAND='fd -t d -H -L -E Library -E workspace -E go -E .git'
 export FZF_ALT_C_OPTS="--layout=reverse --height=100 --border --preview='tree -C {} | head -50'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
-
 
 export EDITOR=nvim
 
@@ -176,9 +178,10 @@ eval "$(starship init zsh)"
 
 # binutils
 export PATH="/usr/local/opt/binutils/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/binutils/lib"
+export CPPFLAGS="-I/usr/local/opt/binutils/include"
 
-PATH="/Users/cb/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/cb/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/cb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/cb/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/cb/perl5"; export PERL_MM_OPT;
+# better man pager
+export MANPAGER='nvim +Man!'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

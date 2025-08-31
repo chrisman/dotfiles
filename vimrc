@@ -35,10 +35,10 @@ set hidden
 " write on jump
 set autowrite
 
-" list mode enables use of listchars
-set list
-" show tabs and eol
-set listchars=tab:▸\ ,eol:¬
+"" list mode enables use of listchars
+"set list
+"" show tabs and eol
+"set listchars=tab:▸\ ,eol:¬
 
 " highlight current line plz
 set cursorline
@@ -46,6 +46,7 @@ set cursorline
 " filetypes
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 autocmd BufNewFile,BufRead *.fnl set filetype=fennel
+autocmd BufNewFile,BufRead *.astro set filetype=html
 
 " FOLDS {{{1
 """"""""""""
@@ -127,8 +128,10 @@ nnoremap Q @q
 nnoremap <Leader>w :w<cr>
 nnoremap <Leader>q :q<cr>
 
-"split terminal, enter insert mode:
+" split terminal, enter insert mode:
 nnoremap <Leader>t :sp term://zsh<cr>i
+" autoclose terminal (no "process exited n")
+autocmd TermClose * :q
 "
 "edit vimrc/source vimrc
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -192,15 +195,12 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 """"""""""""
 call plug#begin('~/.vim/plugged')
 Plug 'freeo/vim-kalisi'                                           " looks and feels: colorscheme
-Plug 'szw/vim-maximizer'                                          " maximizer
 Plug 'SirVer/ultisnips'                                           " snippets
 Plug 'honza/vim-snippets'                                         " snippets
-Plug 'vim-airline/vim-airline'                                    " looks and feels
-Plug 'vim-airline/vim-airline-themes'                             " looks and feels
 Plug 'gko/vim-coloresque'                                         " CSS colors!
 Plug 'tpope/vim-surround'                                         " surround
 Plug 'godlygeek/tabular'                                          " columns
-Plug 'mattn/emmet-vim', { 'for': 'html' }                         " html expander
+Plug 'mattn/emmet-vim', { 'for': ['html','astro'] }               " html expander
 Plug 'scrooloose/nerdtree'                                        " file browser
 Plug 'Xuyuanp/nerdtree-git-plugin'                                " file browser (w. git)
 Plug 'tpope/vim-fugitive'                                         " git
@@ -211,32 +211,35 @@ Plug 'easymotion/vim-easymotion'                                  " easy `avy wo
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }             " elixir
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }               " fuzzy find
 Plug 'junegunn/fzf.vim'                                           " fuzzy find
-Plug 'junegunn/goyo.vim'                                          " distraction free markdown
-Plug 'reedes/vim-pencil'                                          " distraction free markdown
-Plug 'junegunn/limelight.vim'                                     " distraction free markdown
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " actual vim in the browser
 Plug 'bakpakin/fennel.vim', { 'for': 'fennel' }                   " hello fennel
 Plug 'vim-scripts/paredit.vim', { 'for': 'fennel' }               " for some lispy lisps
 Plug 'vimwiki/vimwiki'                                            " vimwiki
 Plug 'zaid/vim-rec'                                               " recutils lol
 Plug 'NoahTheDuke/vim-just'                                       " just!
-Plug 'andys8/vim-elm-syntax'                                      " elm
-Plug 'evanleck/vim-svelte'                                        " svelte
-Plug 'fatih/vim-go'                                               " go
+Plug 'andys8/vim-elm-syntax', { 'for': 'elm' }                    " elm
+Plug 'evanleck/vim-svelte', { 'for': 'svelte' }                   " svelte
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/go.nvim'
-Plug 'ray-x/guihua.lua' 
 Plug 'preservim/vim-markdown'                                     " I want TOC in markdown
+Plug '~/sandbox/tbls/vim-tbls'
+Plug '~/sandbox/vim-lil', { 'for': 'lil' }
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
+"" lspconfig {{{2
+"""""""""""""""""
+lua require'lspconfig'.fennel_ls.setup{}
+lua vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+lua vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 "" snippets {{{2
 """"""""""""""""
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-y>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsListSnippets="<c-tab>"
 "" paredit {{{2
 """""""""""""""
 au FileType fennel call PareditInitBuffer()
@@ -251,26 +254,20 @@ let wiki1 = {}
 let wiki1.name = 'knowledge'
 let wiki1.path = '~/knowledge'
 let wiki1.auto_toc = 1
+let wiki1.auto_tags = 1
 let wiki1.syntax = 'markdown'
 let wiki1.ext = '.md'
 let wiki1.index = 'Home'
 let wiki1.custom_wiki2html = 'mdwiki2html'
 
 let wiki2 = {}
-let wiki2.name = 'streak'
-let wiki2.path = '~/streak'
+let wiki2.name = 'game'
+let wiki2.path = '~/Documents/strixhaven/'
 let wiki2.auto_toc = 1
-let wiki2.syntax = 'markdown'
-let wiki2.ext = '.md'
-let wiki2.custom_wiki2html = 'mdwiki2html'
+let wiki2.auto_tags = 1
+let wiki2.path_html = '$HOME/blogs/dozens-and-dragons/out/campaign/'
 
-let wiki3 = {}
-let wiki3.name = 'spelljammer'
-let wiki3.path = '~/Documents/strixhaven'
-let wiki3.auto_toc = 1
-let wiki3.path_html = '~/Documents/dozens-and-dragons/out/campaign'
-
-let g:vimwiki_list = [ wiki1, wiki2, wiki3 ]
+let g:vimwiki_list = [ wiki1, wiki2 ]
 
 "" firenvim {{{2
 """"""""""""""""
@@ -288,55 +285,6 @@ let g:EasyMotion_smartcase = 1
 """""""""""
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'  " respec teh gitignore
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } } " popout!
-"" goyo family {{{2
-"""""""""""""""""""
-"" why is the goyo family so hard to get right??
-nnoremap <leader>m :Goyo<cr>
-autocmd FileType markdown Goyo
-let g:pencil#wrapModeDefault = 'soft'
-let g:limelight_default_coefficient = 0.7
-let g:limelight_conceal_ctermfg = 1
-function! s:goyo_enter()
-  " quit on :q
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-  " hide tmux
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  " other plugins
-  Limelight
-  SoftPencil
-endfunction
-function! s:goyo_leave()
-  " Quit Vim if this is the only remaining buffer
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    if b:quitting_bang
-      qa!
-    else
-      qa
-    endif
-  endif
-  " bring back tmux
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status on
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=5
-  " turn off plugins
-  Limelight!
-  NoPencil
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " COLORS {{{1
 """""""""""""
 set background=dark
@@ -345,4 +293,11 @@ set background=dark
 let g:airline_powerline_fonts = 0
 let g:airline_theme='kalisi'
 colorscheme kalisi
+" NETRW {{{1
+""""""""""""
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_winsize = 25
+let g:netrw_list_hide = './\.*'
 " }}} vim: fdm=marker
