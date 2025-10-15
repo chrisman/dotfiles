@@ -99,10 +99,11 @@ alias ghostconfig="v ~/Library/Application\ Support/com.mitchellh.ghostty/config
 alias glv="glo | tac | vim -R -c 'set filetype=git' -"
 alias ip="ifconfig | grep -o 'inet 192.168.0.\d\{3\}' | cut -d' ' -f2"
 alias j=just
-alias jj="just --choose"
+alias jc="just --choose"
 alias love="/Applications/love.app/Contents/MacOS/love"
 alias moon='curl --fail -s "https://wttr.in/moon"'
 alias nb=newsboat
+alias nc=ncat
 alias please=sudo
 alias pod=podman
 alias py=python
