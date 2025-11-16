@@ -13,4 +13,5 @@ ln -s $(pwd)/tmux.conf $HOME/.config/tmux/tmux.conf
 mkdir -p $HOME/.config/nvim
 ln -s $(pwd)/vimrc $HOME/.config/nvim/init.vim
 ln -s $(pwd)/zshrc $HOME/.zshrc
+ln -s $(pwd)/starship.toml $HOME/.config/starship.toml
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
