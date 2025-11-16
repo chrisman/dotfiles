@@ -49,11 +49,16 @@ ZSH_THEME="sunaku"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux)
+plugins=(
+  brew
+  git
+  jj
+  tmux
+)
 
 # User configuration
 
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/.local/bin:${HOME}/.luarocks/bin:/usr/local/opt/openssl/bin:/Users/cb/Library/Python/3.9/bin"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${HOME}/bin:${HOME}/.local/bin:${HOME}/.luarocks/bin:/usr/local/opt/openssl/bin:${HOME}/Library/Python/3.9/bin"
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
 export MANPATH="/usr/local/man:$MANPATH"
@@ -88,41 +93,46 @@ export ARCHFLAGS="-arch x86_64"
 # aliases
 #alias docker-compose=podman-compose
 #alias docker=podman
+#alias fennel='rlwrap fennel'
+#alias fl='rlwrap fennel'
+#alias fnl='rlwrap fennel'
+#alias ghostconfig="v ~/Library/Application\ Support/com.mitchellh.ghostty/config"
+#alias love="/Applications/love.app/Contents/MacOS/love"
+#alias nb=newsboat
+#alias pod=podman
+#alias retro='rlwrap retro'
+#alias sc=sc-im
+#alias sus='rlwrap nc sus.tildeverse.org 1234'
+#alias tab="jj ~/tables/justfile"
+#alias tic80="/Applications/tic80.app/Contents/MacOS/tic80"
+#alias tt=tt++
+#alias vimdiff="nvim -d"
+#alias wordle='ssh clidle.ddns.net -p 3000'
+alias bash="$(brew --prefix)/bin/bash"
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias cat=bat
 alias date=gdate # brew install gdate
 alias ed='rlwrap ed'
-alias fennel='rlwrap fennel'
-alias fl='rlwrap fennel'
-alias fnl='rlwrap fennel'
-alias ghostconfig="v ~/Library/Application\ Support/com.mitchellh.ghostty/config"
 alias glv="glo | tac | vim -R -c 'set filetype=git' -"
 alias ip="ifconfig | grep -o 'inet 192.168.0.\d\{3\}' | cut -d' ' -f2"
 alias j=just
 alias jc="just --choose"
-alias love="/Applications/love.app/Contents/MacOS/love"
 alias moon='curl --fail -s "https://wttr.in/moon"'
-alias nb=newsboat
 alias nc=ncat
 alias please=sudo
-alias pod=podman
 alias py=python
 alias r=ranger
-alias retro='rlwrap retro'
-alias sc=sc-im
+alias rn='date ; echo ; cal'
+alias so=source
 alias sql=sqlite3
-alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf --preview="" | xargs npm run"
-alias sus='rlwrap nc sus.tildeverse.org 1234'
+alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf --tmux --preview='jq -r .scripts.{} package.json' | xargs yarn"
 alias t="todo"
-alias tab="jj ~/tables/justfile"
 alias tb="nc termbin.com 9999"
-alias tic80="/Applications/tic80.app/Contents/MacOS/tic80"
-alias tt=tt++
-alias v=nvim
-alias vim=nvim
-alias vimdiff="nvim -d"
-alias wordle='ssh clidle.ddns.net -p 3000'
+alias v=$EDITOR
+alias vi=$EDITOR
+alias vim=$EDITOR
 alias wttr='curl --fail -s "https://wttr.in"'
+alias ww=w3m
 
 # vim keys in zsh
 bindkey -v
@@ -157,6 +167,29 @@ function rmd {
   pandoc $@ | w3m -T text/html
 }
 
+# open a temporary directory
+function tempe {
+  cd "$(mktemp -d)"
+  chmod -R 0700 .
+  if [[ $# -eq 1 ]]; then
+    \mkdir -p "$1"
+    cd "$1"
+    chmod -R 0700 .
+  fi
+}
+
+# success good fail bad
+boop () {
+  local last="$?"
+  if [[ "$last" == '0' ]]
+  then
+    sfx good
+  else
+    sfx bad
+  fi
+  $(exit "$last")
+}
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd -t f -E Library -E workspace -E go'
@@ -167,6 +200,7 @@ export FZF_ALT_C_OPTS="--layout=reverse --height=100 --border --preview='tree -C
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
 
+# editor
 export EDITOR=nvim
 
 # nvm
@@ -185,4 +219,5 @@ export CPPFLAGS="-I/usr/local/opt/binutils/include"
 # better man pager
 export MANPAGER='nvim +Man!'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# completions
+eval "$(just --completions zsh)"
