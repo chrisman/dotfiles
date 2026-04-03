@@ -1,8 +1,8 @@
 [init]
   defaultBranch = main
 [user]
-  name = dozens
-  email = dozens@tilde.team
+  name = Christopher P. Brown
+  email = chris.brown@guild.com
 [column]
   ui = auto
 [branch]
@@ -40,6 +40,9 @@
   autoStash = true
   updateRefs = true
 [alias]
+  set-upstream = \
+    !git branch \
+      --set-upstream-to=origin/`git symbolic-ref --short HEAD`
   praise = blame
 [fetch]
   prune = true
@@ -49,10 +52,3 @@
   autocorrect = prompt
 [commit]
   verbose = true
-[sendemail]
-  smtpserver = smtp.tilde.team
-  smtpuser = dozens
-  smtpencryption = tls
-  smtpserverport = 587
-  annotate = yes
-  suppresscc = self

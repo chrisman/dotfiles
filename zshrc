@@ -66,17 +66,21 @@ export MANPATH="/usr/local/man:$MANPATH"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
+# editor
+export EDITOR=nvim
+
+
 # Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -97,6 +101,8 @@ export ARCHFLAGS="-arch x86_64"
 #alias fl='rlwrap fennel'
 #alias fnl='rlwrap fennel'
 #alias ghostconfig="v ~/Library/Application\ Support/com.mitchellh.ghostty/config"
+#alias j=just
+#alias jc="just --choose"
 #alias love="/Applications/love.app/Contents/MacOS/love"
 #alias nb=newsboat
 #alias pod=podman
@@ -111,28 +117,60 @@ export ARCHFLAGS="-arch x86_64"
 alias bash="$(brew --prefix)/bin/bash"
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias cat=bat
+alias c=clear
+alias cf=confluence
 alias date=gdate # brew install gdate
+alias dick='ssh -t tilde "/home/dozens/bin/epr /town/library/herman-melville_moby-dick.epub"'
 alias ed='rlwrap ed'
+alias fk="ps aux | fzf --no-preview --header-lines=1 --multi --preview 'echo {11}' --preview-window=down:3:wrap --tmux=70% | awk '{ print $2 }' | xargs -p kill -9"
 alias glv="glo | tac | vim -R -c 'set filetype=git' -"
 alias ip="ifconfig | grep -o 'inet 192.168.0.\d\{3\}' | cut -d' ' -f2"
-alias j=just
-alias jc="just --choose"
+alias jd='jj diff'
+alias jdl='jj diff --color=always | less -R'
+alias jds='jj desc'
+alias je='jj edit'
+alias jjb='jj bookmark'
+alias jjbc='jj bookmark create'
+alias jjbd='jj bookmark delete'
+alias jjbf='jj bookmark forget'
+alias jjbl='jj bookmark list'
+alias jjbm='jj bookmark move'
+alias jjbr='jj bookmark rename'
+alias jjbs='jj bookmark set'
+alias jjbt='jj bookmark track'
+alias jjbu='jj bookmark untrack'
+alias jjgpa='jj git push --all'
+alias jjgpd='jj git push --deleted'
+alias jjgpt='jj git push --tracked'
+alias jjll='jj log --color=always | less -R'
+alias jjnt='jj new "trunk()"'
+alias jjp='jj git push'
+alias jjrbm='jj rebase -d "trunk()"'
+alias ll="eza --long --group-directories-first --icons"
+alias ls="eza --icons --group-directories-first"
 alias moon='curl --fail -s "https://wttr.in/moon"'
 alias nc=ncat
+alias oc="opencode"
 alias please=sudo
 alias py=python
 alias r=ranger
 alias rn='date ; echo ; cal'
 alias so=source
 alias sql=sqlite3
+alias src="source ~/dotfiles/zshrc"
 alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf --tmux --preview='jq -r .scripts.{} package.json' | xargs yarn"
+alias sup="sfeed_update $HOME/.sfeed/all.sfeedrc"
 alias t="todo"
 alias tb="nc termbin.com 9999"
+alias timg="timg -pk"
+alias ti="timg"
 alias v=$EDITOR
 alias vi=$EDITOR
 alias vim=$EDITOR
 alias wttr='curl --fail -s "https://wttr.in"'
 alias ww=w3m
+alias n='nnn -de'
+
 
 # vim keys in zsh
 bindkey -v
@@ -190,6 +228,11 @@ boop () {
   $(exit "$last")
 }
 
+# wrap rcsdiff
+function rdiff() {
+  rcsdiff --color=always --side-by-side "$1" | diff-so-fancy | less -R
+}
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fd -t f -E Library -E workspace -E go'
@@ -199,9 +242,6 @@ export FZF_ALT_C_COMMAND='fd -t d -H -L -E Library -E workspace -E go -E .git'
 export FZF_ALT_C_OPTS="--layout=reverse --height=100 --border --preview='tree -C {} | head -50'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
-
-# editor
-export EDITOR=nvim
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -219,5 +259,51 @@ export CPPFLAGS="-I/usr/local/opt/binutils/include"
 # better man pager
 export MANPAGER='nvim +Man!'
 
+# seeeeekrets
+if [ -f ~/.env ]; then
+  source ~/.env
+fi
+
+# java
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
 # completions
 eval "$(just --completions zsh)"
+eval "$(jira completion zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/chrisbrown/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+
+# readrec module
+module_path=(~/.zsh/modules $module_path)
+zmodload readrec
+
+# bun completions
+[ -s "/Users/chrisbrown/.bun/_bun" ] && source "/Users/chrisbrown/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# github, bub
+export GITHUB_TOKEN=$(gh auth token)
+export GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN"
+
+# no more compacting
+alias claude-mem='bun "/Users/chrisbrown/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+
+# jump
+eval "$(jump shell)"
+
+# nnn
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="p:preview-tui;j:autojump"
+export NNN_SCOPE=1  # Use ranger's scope.sh for previews
+#export NNN_PREVIEWIMGPROG="timg -pk"
+#export NNN_PREVIEWVIDEO=""  # Disable sixel/video preview to use timg instead
+
+# nq
+export NQDIR="/tmp"
