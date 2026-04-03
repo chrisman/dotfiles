@@ -1,7 +1,6 @@
 local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin", vim.fn.stdpath("data") .. "/plugged")
-
 Plug "EdenEast/nightfox.nvim"
 Plug "easymotion/vim-easymotion"
 Plug "godlygeek/tabular"
@@ -26,10 +25,7 @@ Plug("posva/vim-vue", { ["for"] = "vue" })
 Plug "jparise/vim-graphql"
 Plug "zaid/vim-rec"
 Plug "NoahTheDuke/vim-just"
-
 vim.call("plug#end")
-
--- plugin config
 
 vim.g.UltiSnipsExpandTrigger = "<tab>"
 vim.g.UltiSnipsJumpForwardTrigger = "<c-y>"
@@ -40,11 +36,7 @@ vim.g.UltiSnipsListSnippets = "<c-tab>"
 vim.g.EasyMotion_smartcase = 1
 
 vim.env.FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git"'
-if vim.env.TMUX then
-  vim.g.fzf_layout = { tmux = "90%,70%" }
-else
-  vim.g.fzf_layout = { window = { width = 0.9, height = 0.6 } }
-end
+vim.g.fzf_layout = { window = { width = 0.9, height = 0.6 } }
 
 vim.g.vimwiki_global_ext = 0
 vim.g.vimwiki_listsyms = "✗○◐●✓"
@@ -72,13 +64,19 @@ vim.g.vimwiki_list = {
 
 vim.g["pencil#wrapModeDefault"] = "soft"
 
+require("zen-mode").setup({
+  window = {
+    width = 90,
+  },
+})
+
 if vim.g.started_by_firenvim then
   vim.opt.laststatus = 0
 else
   vim.opt.laststatus = 2
 end
 
-vim.cmd("colorscheme dayfox")
+vim.cmd("colorscheme dawnfox")
 
 require("zen-mode").setup({
   window = {
