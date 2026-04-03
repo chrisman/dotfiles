@@ -90,6 +90,9 @@ export ARCHFLAGS="-arch x86_64"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# editor
+export EDITOR=nvim
+
 # aliases
 #alias docker-compose=podman-compose
 #alias docker=podman
@@ -98,7 +101,11 @@ export ARCHFLAGS="-arch x86_64"
 alias bash="$(brew --prefix)/bin/bash"
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias cat=bat
+alias c=clear
 alias date=gdate # brew install gdate
+alias destore='find . -name ".DS_Store" -type f -delete'
+alias dp=dillo-plus
+alias e='eza --long --group-directories-first --icons=always'
 alias ed='rlwrap ed'
 alias fennel='rlwrap fennel'
 alias fl='rlwrap fennel'
@@ -109,14 +116,20 @@ alias ip="ifconfig | grep -o 'inet 192.168.0.\d\{3\}' | cut -d' ' -f2"
 alias j=just
 alias jc="just --choose"
 alias love="/Applications/love.app/Contents/MacOS/love"
+alias ll="eza --group-directories-first --icons=always --long"
+alias ls="eza --group-directories-first --icons=always"
 alias moon='curl --fail -s "https://wttr.in/moon"'
+alias mpa="mpv --no-video"
+alias n='nnn -a -P p'
+alias no='yes no'
 alias nc=ncat
+alias oc=opencode
 alias please=sudo
-alias py=python
+alias py=python3
 alias r=ranger
 alias retro='rlwrap retro'
 alias rn="date ; echo ; cal"
-alias so=source
+alias src="source ~/dotfiles/zshrc"
 alias sql=sqlite3
 alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf --tmux --preview='jq -r .scripts.{} package.json' | xargs yarn"
 alias sus='rlwrap nc sus.tildeverse.org 1234'
@@ -132,6 +145,7 @@ alias vimdiff="nvim -d"
 alias wordle='ssh clidle.ddns.net -p 3000'
 alias wttr='curl --fail -s "https://wttr.in"'
 alias ww=w3m
+alias za=zathura
 
 # vim keys in zsh
 bindkey -v
@@ -199,9 +213,6 @@ export FZF_ALT_C_OPTS="--layout=reverse --height=100 --border --preview='tree -C
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
 
-# editor
-export EDITOR=nvim
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -218,5 +229,24 @@ export CPPFLAGS="-I/usr/local/opt/binutils/include"
 # better man pager
 export MANPAGER='nvim +Man!'
 
+# nq / nqtail / etc
+export NQDIR="/tmp"
+
 # completions
 eval "$(just --completions zsh)"
+
+# nnn
+export NNN_PLUG="j:autojump;p:preview-tui"
+export NNN_PREVIEWIMGPROG="timg -pk"
+export NNN_FCOLORS=""
+export NNN_FIFO="/tmp/nnn.fifo"
+
+# jump!
+eval "$(jump shell --bind=z)"
+
+# bun completions
+[ -s "/Users/cb/.bun/_bun" ] && source "/Users/cb/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

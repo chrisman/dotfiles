@@ -139,7 +139,14 @@ call plug#end()
 "" lspconfig {{{2
 """""""""""""""""
 lua<<EOF
-require'lspconfig'.fennel_ls.setup{}
+local lspconfig = require 'lspconfig'
+
+--fennel_ls.setup{}
+lspconfig.clangd.setup {
+  init_options = {
+    fallbackFlags = { '--std=c23' }
+  }
+}
 vim.keymap.set('n', ']g', vim.diagnostic.goto_next)
 vim.keymap.set('n', '[g', vim.diagnostic.goto_prev)
 EOF
@@ -184,7 +191,7 @@ let g:vimwiki_list = [ wiki1, wiki2 ]
 if exists('g:started_by_firenvim')
   set laststatus=0
 else
-  set laststatus=1
+  set laststatus=2
 endif
 "" easymotion {{{2
 """"""""""""""""""
