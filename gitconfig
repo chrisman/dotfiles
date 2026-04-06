@@ -23,6 +23,9 @@
   cmd = "nvim -d $LOCAL $REMOTE"
 [difftool]
   prompt = false
+[diff "sqlite3"]
+  binary = true
+  textconv = "echo .dump | sqlite3"
 [merge]
   tool = vimdiff
   conflictstyle = diff3

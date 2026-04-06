@@ -1,8 +1,9 @@
 local m = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
 m("n", "<Leader>s", ":setlocal spell! spelllang=en_us<CR>")
 m("n", "<Leader>x", ":silent !open %<CR>")
-m("n", "<Leader>/", ":noh<CR>", { silent = true })
+m("n", "<Leader>/", ":noh<CR>", opts)
 m("n", "<Leader>b", ":bn<CR>")
 m("n", "<Leader>B", ":bN<CR>")
 m("n", "<Leader>v", "<C-^>")
@@ -11,8 +12,8 @@ m("n", "Q", "@q")
 m("n", "<Leader>w", ":w<CR>")
 m("n", "<Leader>q", ":q<CR>")
 m("n", "<Leader>t", ":sp term://zsh<CR>i")
-m("n", "<Leader>ev", ":e $MYVIMRC<CR>", { silent = true })
-m("n", "<Leader>sv", ":so $MYVIMRC<CR>", { silent = true })
+m("n", "<Leader>ev", ":e $MYVIMRC<CR>", opts)
+m("n", "<Leader>sv", ":so $MYVIMRC<CR>", opts)
 m("n", "<Leader>n", ":NERDTreeToggle<CR>")
 m("n", "<Leader>m", ":ZenMode<CR>")
 m("i", ",f", "=strftime('%F')<CR>")

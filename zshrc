@@ -94,7 +94,11 @@ export EDITOR=nvim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# editor
+export EDITOR=nvim
+
 # aliases
+#alias cf=confluence
 #alias docker-compose=podman-compose
 #alias docker=podman
 #alias fennel='rlwrap fennel'
@@ -110,9 +114,11 @@ alias bash="$(brew --prefix)/bin/bash"
 alias bkgm='rlwrap telnet fibs.com 4321'
 alias c=clear
 alias cat=bat
-alias cf=confluence
 alias date=gdate # brew install gdate
+alias destore='find . -name ".DS_Store" -type f -delete'
 alias dick='ssh -t tilde "/home/dozens/bin/epr /town/library/herman-melville_moby-dick.epub"'
+alias dp=dillo-plus
+alias e='eza --long --group-directories-first --icons=always'
 alias ed='rlwrap ed'
 alias fennel='rlwrap fennel'
 alias fk="ps aux | fzf --no-preview --header-lines=1 --multi --preview 'echo {11}' --preview-window=down:3:wrap --tmux=70% | awk '{ print $2 }' | xargs -p kill -9"
@@ -143,19 +149,20 @@ alias jjll='jj log --color=always | less -R'
 alias jjnt='jj new "trunk()"'
 alias jjp='jj git push'
 alias jjrbm='jj rebase -d "trunk()"'
-alias ll="eza --long --group-directories-first --icons"
+alias ll="eza --group-directories-first --icons=always --long"
 alias love="/Applications/love.app/Contents/MacOS/love"
-alias ls="eza --icons --group-directories-first"
+alias ls="eza --group-directories-first --icons=always"
 alias moon='curl --fail -s "https://wttr.in/moon"'
+alias mpa="mpv --no-video"
 alias n='nnn -de'
 alias nc=ncat
-alias oc="opencode"
+alias no='yes no'
+alias oc=opencode
 alias please=sudo
-alias py=python
+alias py=python3
 alias r=ranger
 alias retro='rlwrap retro'
 alias rn="date ; echo ; cal"
-alias so=source
 alias sql=sqlite3
 alias src="source ~/dotfiles/zshrc"
 alias ss="cat package.json | jq -r '.scripts | keys[]' | fzf --tmux --preview='jq -r .scripts.{} package.json' | xargs yarn"
@@ -176,6 +183,7 @@ alias wordle='ssh clidle.ddns.net -p 3000'
 alias wttr='curl --fail -s "https://wttr.in"'
 alias ww=w3m
 alias z=jump
+alias za=zathura
 
 # vim keys in zsh
 bindkey -v
@@ -264,6 +272,9 @@ export CPPFLAGS="-I/usr/local/opt/binutils/include"
 # better man pager
 export MANPAGER='nvim +Man!'
 
+# nq / nqtail / etc
+export NQDIR="/tmp"
+
 # seeeeekrets
 if [ -f ~/.env ]; then
   source ~/.env
@@ -274,41 +285,19 @@ export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 # completions
 eval "$(just --completions zsh)"
-eval "$(jira completion zsh)"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/chrisbrown/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 
+# nnn
+export NNN_PLUG="j:autojump;p:preview-tui"
+export NNN_PREVIEWIMGPROG="timg -pk"
+export NNN_FCOLORS=""
+export NNN_FIFO="/tmp/nnn.fifo"
 
-# readrec module
-module_path=(~/.zsh/modules $module_path)
-zmodload readrec
+# jump!
+eval "$(jump shell --bind=z)"
 
 # bun completions
-[ -s "/Users/chrisbrown/.bun/_bun" ] && source "/Users/chrisbrown/.bun/_bun"
+[ -s "/Users/cb/.bun/_bun" ] && source "/Users/cb/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# github, bub
-export GITHUB_TOKEN=$(gh auth token)
-export GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN"
-
-# no more compacting
-alias claude-mem='bun "/Users/chrisbrown/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
-
-# jump
-eval "$(jump shell)"
-
-# nnn
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_PLUG="p:preview-tui;j:autojump"
-export NNN_SCOPE=1  # Use ranger's scope.sh for previews
-#export NNN_PREVIEWIMGPROG="timg -pk"
-#export NNN_PREVIEWVIDEO=""  # Disable sixel/video preview to use timg instead
-
-# nq
-export NQDIR="/tmp"

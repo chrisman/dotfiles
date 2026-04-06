@@ -1,8 +1,8 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ";"
 
-require("options")
-require("plugins")
-require("keymaps")
-require("autocmds")
-require("lsp")
+require('options')
+require('keymaps')
+require('autocmds')
+require('plugins')
+require('lsp')
