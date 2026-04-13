@@ -78,7 +78,28 @@ else
   vim.opt.laststatus = 2
 end
 
-vim.cmd("colorscheme duskfox")
+vim.cmd("colorscheme dayfox")
+
+require("zen-mode").setup({
+  window = {
+    width = 85,
+    options = {
+      number = false,
+      relativenumber = false,
+    },
+  },
+  plugins = {
+    options = {
+      laststatus = 0,
+    },
+    tmux = {
+      enabled = true,
+    },
+    gitsigns = {
+      enabled = true,
+    },
+  },
+})
 
 require("nvim-treesitter").setup({
   ensure_installed = { "typescript", "tsx", "python", "markdown", "markdown_inline", "lua" },

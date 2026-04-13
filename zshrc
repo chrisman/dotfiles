@@ -127,6 +127,7 @@ alias fnl='rlwrap fennel'
 alias ghostconfig="v ~/Library/Application\ Support/com.mitchellh.ghostty/config"
 alias glv="glo | tac | vim -R -c 'set filetype=git' -"
 alias ip="ifconfig | grep -o 'inet 192.168.0.\d\{3\}' | cut -d' ' -f2"
+alias j=jj
 alias jc="just --choose"
 alias jd='jj diff'
 alias jdl='jj diff --color=always | less -R'
@@ -182,7 +183,6 @@ alias vimdiff="nvim -d"
 alias wordle='ssh clidle.ddns.net -p 3000'
 alias wttr='curl --fail -s "https://wttr.in"'
 alias ww=w3m
-alias z=jump
 alias za=zathura
 
 # vim keys in zsh

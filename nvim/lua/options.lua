@@ -3,7 +3,7 @@ local g = vim.g
 
 o.autoread = true
 o.autowrite = true
-o.background = "dark"
+o.background = "light"
 o.backup = false
 o.completeopt = { "fuzzy", "menuone", "noselect", "popup" }
 o.cursorline = true
